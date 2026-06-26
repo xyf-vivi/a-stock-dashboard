@@ -852,6 +852,182 @@ tbody tr:last-child td { border-bottom: none; }
   .tab-content.print-show { display: block !important; }
   body { background: #fff; }
 }
+/* === 专业复盘摘要 === */
+.pro-review-card {
+  background: linear-gradient(135deg, rgba(43, 147, 245, .12), rgba(18, 24, 38, .72));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  margin-bottom: var(--sp-4);
+  box-shadow: var(--shadow);
+}
+.pro-review-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  margin-bottom: var(--sp-3);
+}
+.pro-eyebrow {
+  font-size: var(--fs-tiny);
+  color: var(--c-brand-light);
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.pro-headline {
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 850;
+  color: var(--t0);
+}
+.pro-conclusion {
+  margin-top: var(--sp-1);
+  color: var(--t2);
+  line-height: 1.65;
+  font-size: var(--fs-body);
+  max-width: 980px;
+}
+.pro-phase {
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 800;
+  font-size: var(--fs-small);
+  background: var(--tag-neutral-bg);
+  color: var(--t1);
+}
+.pro-phase.surge { background: var(--tag-confirm-bg); color: var(--phase-surge); }
+.pro-phase.crowd { background: var(--tag-warn-bg); color: var(--phase-crowd); }
+.pro-phase.diffuse { background: rgba(43,147,245,.14); color: var(--phase-diffuse); }
+.pro-phase.cool { background: var(--tag-neutral-bg); color: var(--phase-cool); }
+.pro-phase.watch { background: var(--tag-neutral-bg); color: var(--phase-watch); }
+.pro-fact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+.pro-fact {
+  background: rgba(255,255,255,.035);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+  min-height: 108px;
+}
+.pro-fact.positive { border-color: rgba(20, 184, 166, .42); }
+.pro-fact.negative, .pro-fact.dn { border-color: rgba(245, 85, 107, .42); }
+.pro-fact.up { border-color: rgba(20, 184, 166, .42); }
+.pro-fact-label {
+  font-size: var(--fs-tiny);
+  color: var(--t3);
+  margin-bottom: 6px;
+}
+.pro-fact-value {
+  font-size: 24px;
+  font-weight: 850;
+  color: var(--t0);
+}
+.pro-fact-value span {
+  font-size: var(--fs-small);
+  color: var(--t3);
+  margin-left: 4px;
+  font-weight: 500;
+}
+.pro-fact-note {
+  margin-top: 6px;
+  font-size: var(--fs-tiny);
+  color: var(--t2);
+  line-height: 1.45;
+}
+.pro-columns {
+  display: grid;
+  grid-template-columns: 1.15fr 1.05fr 1fr;
+  gap: var(--sp-2);
+}
+.pro-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+}
+.pro-panel-title {
+  font-size: var(--fs-small);
+  color: var(--t1);
+  font-weight: 800;
+  margin-bottom: var(--sp-2);
+}
+.pro-flow-list, .pro-mainline-list, .pro-milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pro-flow-row, .pro-mainline-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: baseline;
+  font-size: var(--fs-small);
+}
+.pro-flow-row span, .pro-mainline-row span { color: var(--t1); font-weight: 650; }
+.pro-flow-row strong, .pro-mainline-row strong { font-weight: 800; }
+.pro-flow-row em, .pro-mainline-row em {
+  font-style: normal;
+  color: var(--t3);
+  font-size: var(--fs-tiny);
+}
+.pro-sell-list, .pro-heat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-2);
+  border-top: 1px dashed var(--border);
+}
+.pro-sell-list span, .pro-heat-tags span {
+  font-size: var(--fs-tiny);
+  color: var(--t2);
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+.pro-milestone {
+  border-left: 3px solid var(--c-neutral);
+  background: var(--bg-card2);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+.pro-milestone.strong { border-left-color: var(--c-confirm); }
+.pro-milestone.risk { border-left-color: var(--c-down); }
+.pro-milestone.watch { border-left-color: var(--c-warn); }
+.pro-milestone strong {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--t1);
+  margin-bottom: 3px;
+}
+.pro-milestone span {
+  font-size: var(--fs-tiny);
+  color: var(--t2);
+  line-height: 1.45;
+}
+.pro-empty {
+  color: var(--t3);
+  font-size: var(--fs-small);
+  padding: var(--sp-2) 0;
+}
+@media (max-width: 1100px) {
+  .pro-fact-grid { grid-template-columns: repeat(2, 1fr); }
+  .pro-columns { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .pro-review-head { flex-direction: column; }
+  .pro-headline { font-size: 18px; }
+  .pro-fact-grid { grid-template-columns: 1fr; }
+  .pro-flow-row, .pro-mainline-row { grid-template-columns: 1fr auto; }
+  .pro-flow-row em, .pro-mainline-row em { grid-column: 1 / -1; }
+}
 </style>
 </head>
 <body>
@@ -3951,7 +4127,7 @@ Object.assign(DMod, {
 
 // ===== render.js =====
 (function(DMod) {
-/**
+﻿/**
  * render.js — 页面渲染层
  * 5个一级页面：今日复盘 / 资金结构 / ETF方向 / 主线验证 / 数据说明
  * 全部读取派生指标和状态判断结果
@@ -4086,6 +4262,201 @@ function renderTabs() {
   `;
 }
 
+
+// --- 专业复盘首页摘要 ---
+function getPrevDate(data, currentDt) {
+  const idx = data.dates.indexOf(currentDt);
+  return idx > 0 ? data.dates[idx - 1] : null;
+}
+
+function getAllThemeItems(entry) {
+  const items = [];
+  if (!entry || !entry.etfTheme || !entry.etfTheme.categories) return items;
+  for (const [cat, catData] of Object.entries(entry.etfTheme.categories)) {
+    for (const [theme, themeData] of Object.entries(catData.themes || {})) {
+      items.push({ cat, theme, ...themeData });
+    }
+  }
+  return items;
+}
+
+function sumThemeFlow(entry) {
+  const items = getAllThemeItems(entry).filter(t => t.flow != null && isFinite(t.flow));
+  if (items.length === 0) return null;
+  return items.reduce((sum, t) => sum + t.flow, 0);
+}
+
+function calcFlowStreak(data, currentDt, getter, direction) {
+  const idx = data.dates.indexOf(currentDt);
+  let days = 0;
+  let sum = 0;
+  for (let i = idx; i >= 0; i--) {
+    const v = getter(data.data[data.dates[i]]);
+    if (v == null || !isFinite(v)) break;
+    const ok = direction === 'positive' ? v > 0 : v < 0;
+    if (!ok) break;
+    days += 1;
+    sum += v;
+  }
+  return { days, sum };
+}
+
+function formatCount(v) {
+  if (v == null || !isFinite(v)) return '--';
+  return Math.round(v).toLocaleString('zh-CN');
+}
+
+function renderProfessionalReview(data, currentDt, phase) {
+  const entry = data.data[currentDt];
+  const prevDt = getPrevDate(data, currentDt);
+  const prev = prevDt ? data.data[prevDt] : null;
+  const c = entry.computed || {};
+  const total = entry.concentration.totalAmount;
+  const prevTotal = prev && prev.concentration ? prev.concentration.totalAmount : null;
+  const amountDelta = total != null && prevTotal != null ? total - prevTotal : null;
+  const amountStreak = calcFlowStreak(data, currentDt, e => e && e.concentration ? e.concentration.totalAmount : null, 'positive');
+  const highAmountStreak = (() => {
+    const idx = data.dates.indexOf(currentDt);
+    let days = 0;
+    for (let i = idx; i >= 0; i--) {
+      const v = data.data[data.dates[i]].concentration.totalAmount;
+      if (v == null || v < 30000) break;
+      days += 1;
+    }
+    return days;
+  })();
+
+  const upCount = entry.market.upCount;
+  const downCount = entry.market.downCount;
+  const upRatio = entry.market.upRatio;
+  const breadthText = upCount != null && downCount != null
+    ? `${formatCount(upCount)}只上涨，${formatCount(downCount)}只下跌，上涨占比${upRatio != null ? (upRatio * 100).toFixed(1) + '%' : '--'}`
+    : '市场宽度未采集，当前只能参考代理信号';
+  const breadthTone = upRatio == null ? 'neutral' : (upRatio < 0.35 ? 'negative' : (upRatio > 0.6 ? 'positive' : 'neutral'));
+
+  const wideFlow = entry.etfWide.totalFlow;
+  const wideStreak = calcFlowStreak(data, currentDt, e => e && e.etfWide ? e.etfWide.totalFlow : null, wideFlow >= 0 ? 'positive' : 'negative');
+  const themeFlow = sumThemeFlow(entry);
+  const themeStreak = calcFlowStreak(data, currentDt, sumThemeFlow, themeFlow >= 0 ? 'positive' : 'negative');
+
+  const themes = getAllThemeItems(entry);
+  const inflowThemes = themes.filter(t => t.flow != null).sort((a, b) => b.flow - a.flow).slice(0, 4);
+  const outflowThemes = themes.filter(t => t.flow != null).sort((a, b) => a.flow - b.flow).slice(0, 3);
+  const totalInflow = inflowThemes.reduce((s, t) => s + Math.max(0, t.flow || 0), 0);
+  const leadTheme = inflowThemes[0] || null;
+  const leadShare = leadTheme && totalInflow > 0 ? leadTheme.flow / totalInflow : null;
+
+  const mainlines = calcMainlineValidation(entry);
+  const mainPositive = mainlines.filter(m => m.status === '主线确认' || m.status === '潜在主线' || m.status === '防御配置').slice(0, 4);
+  const heatLeaders = mainlines
+    .filter(m => m.heatShare != null)
+    .sort((a, b) => (b.heatShare || 0) - (a.heatShare || 0))
+    .slice(0, 4);
+
+  const milestones = [];
+  if (entry.margin.value != null && entry.margin.value >= 3) {
+    milestones.push({ level: 'strong', title: '融资余额突破3万亿', desc: `杠杆资金进入历史高水位，当前${entry.margin.value.toFixed(4)}万亿` });
+  } else if (entry.margin.value != null && entry.margin.value >= 2.9) {
+    milestones.push({ level: 'watch', title: '融资余额逼近3万亿', desc: `当前${entry.margin.value.toFixed(4)}万亿，观察加仓节奏是否继续放缓` });
+  }
+  if (highAmountStreak >= 2) {
+    milestones.push({ level: 'strong', title: `成交额连续${highAmountStreak}日破3万亿`, desc: `当日成交${total != null ? fmt(total) + '亿' : '--'}，流动性处于高位` });
+  }
+  if (wideStreak.days >= 3 && wideFlow < 0) {
+    milestones.push({ level: 'risk', title: `宽基ETF连续${wideStreak.days}日流出`, desc: `区间累计${fmtFlow(wideStreak.sum)}亿，权重资金仍在撤退` });
+  }
+  if (leadTheme && leadShare != null && leadShare >= 0.3) {
+    milestones.push({ level: 'strong', title: `${leadTheme.theme}成为最一致流入方向`, desc: `在前四大流入主题中占${(leadShare * 100).toFixed(0)}%，当日${fmtFlow(leadTheme.flow)}亿` });
+  }
+  if (breadthTone === 'negative' && total != null && total >= 30000) {
+    milestones.push({ level: 'risk', title: '放量但宽度较差', desc: '高成交并未扩散到多数股票，更像结构行情而非普涨' });
+  }
+  if (milestones.length === 0) {
+    milestones.push({ level: 'watch', title: '暂无硬里程碑', desc: '今天更适合观察资金方向和主线验证，而不是下强结论' });
+  }
+
+  const headlineParts = [];
+  if (total != null) headlineParts.push(`成交额${fmt(total)}亿`);
+  if (amountDelta != null) headlineParts.push(`${amountDelta >= 0 ? '放量' : '缩量'}${Math.abs(amountDelta).toFixed(0)}亿`);
+  if (highAmountStreak >= 2) headlineParts.push(`连续${highAmountStreak}日破3万亿`);
+  if (upCount != null && downCount != null) headlineParts.push(`${formatCount(upCount)}涨/${formatCount(downCount)}跌`);
+  const headline = headlineParts.join('，') || phase.description;
+
+  const professionalConclusion = (() => {
+    if (breadthTone === 'negative' && themeFlow != null && themeFlow > 0 && wideFlow != null && wideFlow < 0) {
+      return '资金没有全面扩散，而是在宽基撤退、主题加仓之间做结构切换。今天更应寻找被资金和成交额共同验证的方向。';
+    }
+    if (breadthTone === 'negative' && total != null && total >= 30000) {
+      return '成交额很高，但宽度偏弱，说明市场不是普涨环境，主线需要更严格地用成交热度和主题宽度确认。';
+    }
+    if (themeFlow != null && themeFlow > 0) {
+      return '主题ETF仍有主动资金流入，主线判断优先看流入方向是否获得TOP100成交热度配合。';
+    }
+    return phase.description;
+  })();
+
+  return `
+  <div class="pro-review-card">
+    <div class="pro-review-head">
+      <div>
+        <div class="pro-eyebrow">专业复盘摘要</div>
+        <div class="pro-headline">${headline}</div>
+        <div class="pro-conclusion">${professionalConclusion}</div>
+      </div>
+      <div class="pro-phase ${phase.phase}">${phase.label}</div>
+    </div>
+
+    <div class="pro-fact-grid">
+      <div class="pro-fact">
+        <div class="pro-fact-label">成交额</div>
+        <div class="pro-fact-value">${total != null ? fmt(total) : '--'}<span>亿</span></div>
+        <div class="pro-fact-note">${amountDelta != null ? (amountDelta >= 0 ? '放量 ' : '缩量 ') + Math.abs(amountDelta).toFixed(0) + '亿' : '--'}${highAmountStreak >= 2 ? ` · 连续${highAmountStreak}日破3万亿` : ''}</div>
+      </div>
+      <div class="pro-fact ${breadthTone}">
+        <div class="pro-fact-label">市场宽度</div>
+        <div class="pro-fact-value">${upRatio != null ? (upRatio * 100).toFixed(1) : '--'}<span>%上涨</span></div>
+        <div class="pro-fact-note">${breadthText}</div>
+      </div>
+      <div class="pro-fact ${upDn(wideFlow)}">
+        <div class="pro-fact-label">宽基ETF</div>
+        <div class="pro-fact-value">${wideFlow != null ? fmtFlow(wideFlow) : '--'}<span>亿</span></div>
+        <div class="pro-fact-note">${wideStreak.days >= 2 ? `连续${wideStreak.days}日${wideFlow >= 0 ? '流入' : '流出'}，累计${fmtFlow(wideStreak.sum)}亿` : '观察权重资金态度'}</div>
+      </div>
+      <div class="pro-fact ${upDn(themeFlow)}">
+        <div class="pro-fact-label">主题ETF</div>
+        <div class="pro-fact-value">${themeFlow != null ? fmtFlow(themeFlow) : '--'}<span>亿</span></div>
+        <div class="pro-fact-note">${themeStreak.days >= 2 ? `连续${themeStreak.days}日${themeFlow >= 0 ? '流入' : '流出'}，累计${fmtFlow(themeStreak.sum)}亿` : '观察主动加仓方向'}</div>
+      </div>
+    </div>
+
+    <div class="pro-columns">
+      <div class="pro-panel">
+        <div class="pro-panel-title">资金穿透方向</div>
+        <div class="pro-flow-list">
+          ${inflowThemes.map(t => `<div class="pro-flow-row"><span>${t.theme}</span><strong class="${upDn(t.flow)}">${fmtFlow(t.flow)}亿</strong><em>${t.flow5d != null ? '5日 ' + fmtFlow(t.flow5d) + '亿' : ''}</em></div>`).join('') || '<div class="pro-empty">暂无主题流入数据</div>'}
+        </div>
+        <div class="pro-sell-list">
+          ${outflowThemes.map(t => `<span>${t.theme} ${fmtFlow(t.flow)}亿</span>`).join('') || '<span>暂无明显流出方向</span>'}
+        </div>
+      </div>
+      <div class="pro-panel">
+        <div class="pro-panel-title">主线候选与成交热度</div>
+        <div class="pro-mainline-list">
+          ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.theme}</span><strong>${m.status}</strong><em>${m.signalAgreement || '--'} · TOP100${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
+        </div>
+        <div class="pro-heat-tags">
+          ${heatLeaders.map(m => `<span>${m.theme} ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
+        </div>
+      </div>
+      <div class="pro-panel">
+        <div class="pro-panel-title">里程碑信号</div>
+        <div class="pro-milestones">
+          ${milestones.slice(0, 4).map(m => `<div class="pro-milestone ${m.level}"><strong>${m.title}</strong><span>${m.desc}</span></div>`).join('')}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
 // ============ 页面1: 今日复盘 ============
 
 function renderReview(data, currentDt) {
