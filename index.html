@@ -1120,7 +1120,7 @@ tbody tr:last-child td { border-bottom: none; }
           <div class="pro-empty">暂无通过验证的主线候选</div>
         </div>
         <div class="pro-heat-tags">
-          <span>undefined 24.8%</span><span>undefined 24.2%</span><span>undefined 16.4%</span><span>undefined 13.0%</span>
+          <span>半导体 24.8%</span><span>通信 24.2%</span><span>AI 16.4%</span><span>有色金属 13.0%</span>
         </div>
       </div>
       <div class="pro-panel">
@@ -4506,7 +4506,7 @@ function renderProfessionalReview(data, currentDt, phase) {
           ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.theme}</span><strong>${m.status}</strong><em>${m.signalAgreement || '--'} · TOP100${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
         </div>
         <div class="pro-heat-tags">
-          ${heatLeaders.map(m => `<span>${m.theme} ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
+          ${heatLeaders.map(m => `<span>${m.themeName || m.theme || '--'} ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
         </div>
       </div>
       <div class="pro-panel">
