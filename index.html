@@ -1017,14 +1017,67 @@ tbody tr:last-child td { border-bottom: none; }
   font-size: var(--fs-small);
   padding: var(--sp-2) 0;
 }
+.pro-narrative {
+  margin-top: var(--sp-2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--t2);
+  line-height: 1.65;
+  font-size: var(--fs-body);
+  max-width: 1080px;
+}
+.pro-narrative strong {
+  color: var(--t1);
+  font-weight: 800;
+}
+.pro-signal-tape {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--sp-2);
+  margin: 0 0 var(--sp-3);
+}
+.pro-signal-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-2);
+  min-height: 78px;
+}
+.pro-signal-chip.strong { border-color: rgba(23,196,154,.42); }
+.pro-signal-chip.risk { border-color: rgba(245,85,107,.42); }
+.pro-signal-chip.neutral { border-color: var(--border); }
+.pro-signal-chip span {
+  display: block;
+  font-size: var(--fs-tiny);
+  color: var(--t3);
+  margin-bottom: 4px;
+}
+.pro-signal-chip strong {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--t1);
+  font-weight: 850;
+  line-height: 1.35;
+}
+.pro-signal-chip em {
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  color: var(--t3);
+  font-size: var(--fs-tiny);
+  line-height: 1.35;
+}
 @media (max-width: 1100px) {
   .pro-fact-grid { grid-template-columns: repeat(2, 1fr); }
   .pro-columns { grid-template-columns: 1fr; }
+  .pro-signal-tape { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
   .pro-review-head { flex-direction: column; }
   .pro-headline { font-size: 18px; }
   .pro-fact-grid { grid-template-columns: 1fr; }
+  .pro-signal-tape { grid-template-columns: 1fr; }
   .pro-flow-row, .pro-mainline-row { grid-template-columns: 1fr auto; }
   .pro-flow-row em, .pro-mainline-row em { grid-column: 1 / -1; }
 }
@@ -1076,7 +1129,11 @@ tbody tr:last-child td { border-bottom: none; }
       <div>
         <div class="pro-eyebrow">专业复盘摘要</div>
         <div class="pro-headline">成交额3.6万亿，缩量436亿，连续9日破3万亿，393涨/2,259跌</div>
-        <div class="pro-conclusion">资金没有全面扩散，而是在宽基撤退、主题加仓之间做结构切换。今天更应寻找被资金和成交额共同验证的方向。</div>
+        <div class="pro-narrative">
+          <div><strong>市场定性：</strong>今天先定性为高成交、弱宽度的结构行情，但上涨/下跌家数连续多日完全相同，宽度数据疑似缓存，宽度证据需要降权。</div>
+          <div><strong>资金穿透：</strong>宽基ETF近5日累计-959亿，主题ETF近5日累计+101亿，当日最强流入是通信（+60.4亿）。这决定了今天更像资金在选择方向，而不是无差别扩散。</div>
+          <div><strong>明日验证：</strong>下一交易日优先验证半导体：TOP100热度能否维持在29.0%附近，主题ETF是否继续净流入，同时市场宽度不能继续恶化。</div>
+        </div>
       </div>
       <div class="pro-phase watch">温和观望</div>
     </div>
@@ -1102,6 +1159,10 @@ tbody tr:last-child td { border-bottom: none; }
         <div class="pro-fact-value">+102<span>亿</span></div>
         <div class="pro-fact-note">连续3日流入，累计+139亿</div>
       </div>
+    </div>
+
+    <div class="pro-signal-tape">
+      <div class="pro-signal-chip strong"><span>成交连续性</span><strong>连续9日破3万亿</strong><em>当日3.6万亿</em></div><div class="pro-signal-chip risk"><span>宽度连续性</span><strong>连续4日弱宽度</strong><em>上涨占比14.7%</em></div><div class="pro-signal-chip risk"><span>宽基ETF</span><strong>5日-959亿</strong><em>10日-1108亿</em></div><div class="pro-signal-chip strong"><span>主题ETF</span><strong>5日+101亿</strong><em>10日+71.5亿</em></div><div class="pro-signal-chip risk"><span>融资节奏</span><strong>口径跳变待核验</strong><em>融资余额序列异常</em></div><div class="pro-signal-chip risk"><span>数据异常</span><strong>宽度疑似缓存</strong><em>连续3日涨跌家数相同</em></div><div class="pro-signal-chip risk"><span>数据异常</span><strong>融资口径疑似跳变</strong><em>连续变化不用于判断</em></div>
     </div>
 
     <div class="pro-columns">
@@ -4362,6 +4423,66 @@ function calcFlowStreak(data, currentDt, getter, direction) {
   return { days, sum };
 }
 
+
+function calcWindowSum(data, currentDt, getter, windowDays) {
+  const idx = data.dates.indexOf(currentDt);
+  let days = 0;
+  let sum = 0;
+  for (let i = idx; i >= 0 && days < windowDays; i--) {
+    const v = getter(data.data[data.dates[i]]);
+    if (v == null || !isFinite(v)) continue;
+    days += 1;
+    sum += v;
+  }
+  return days > 0 ? { days, sum } : { days: 0, sum: null };
+}
+
+function calcWindowChange(data, currentDt, getter, windowDays) {
+  const idx = data.dates.indexOf(currentDt);
+  const cur = getter(data.data[currentDt]);
+  if (cur == null || !isFinite(cur)) return null;
+  let seen = 0;
+  let base = null;
+  for (let i = idx - 1; i >= 0; i--) {
+    const v = getter(data.data[data.dates[i]]);
+    if (v == null || !isFinite(v)) continue;
+    seen += 1;
+    base = v;
+    if (seen >= windowDays) break;
+  }
+  return base == null ? null : cur - base;
+}
+
+function calcConditionStreak(data, currentDt, predicate) {
+  const idx = data.dates.indexOf(currentDt);
+  let days = 0;
+  for (let i = idx; i >= 0; i--) {
+    const entry = data.data[data.dates[i]];
+    if (!predicate(entry)) break;
+    days += 1;
+  }
+  return days;
+}
+
+function detectBreadthCacheSuspicion(data, currentDt) {
+  const idx = data.dates.indexOf(currentDt);
+  const recent = [];
+  for (let i = idx; i >= 0 && recent.length < 3; i--) {
+    const m = data.data[data.dates[i]].market;
+    if (m && m.upCount != null && m.downCount != null && m.medianReturn != null) {
+      recent.push({ up: m.upCount, down: m.downCount, median: m.medianReturn });
+    }
+  }
+  if (recent.length < 3) return false;
+  const sameCounts = recent.every(x => x.up === recent[0].up && x.down === recent[0].down);
+  const medians = recent.map(x => x.median);
+  const medianRange = Math.max(...medians) - Math.min(...medians);
+  return sameCounts && medianRange > 0.3;
+}
+
+function renderSignalChip(label, value, tone, note) {
+  return `<div class="pro-signal-chip ${tone || 'neutral'}"><span>${label}</span><strong>${value}</strong><em>${note || ''}</em></div>`;
+}
 function formatCount(v) {
   if (v == null || !isFinite(v)) return '--';
   return Math.round(v).toLocaleString('zh-CN');
@@ -4399,6 +4520,15 @@ function renderProfessionalReview(data, currentDt, phase) {
   const wideStreak = calcFlowStreak(data, currentDt, e => e && e.etfWide ? e.etfWide.totalFlow : null, wideFlow >= 0 ? 'positive' : 'negative');
   const themeFlow = sumThemeFlow(entry);
   const themeStreak = calcFlowStreak(data, currentDt, sumThemeFlow, themeFlow >= 0 ? 'positive' : 'negative');
+  const wide5 = calcWindowSum(data, currentDt, e => e && e.etfWide ? e.etfWide.totalFlow : null, 5);
+  const wide10 = calcWindowSum(data, currentDt, e => e && e.etfWide ? e.etfWide.totalFlow : null, 10);
+  const theme5 = calcWindowSum(data, currentDt, sumThemeFlow, 5);
+  const theme10 = calcWindowSum(data, currentDt, sumThemeFlow, 10);
+  const margin5 = calcWindowChange(data, currentDt, e => e && e.margin ? e.margin.value : null, 5);
+  const margin10 = calcWindowChange(data, currentDt, e => e && e.margin ? e.margin.value : null, 10);
+  const weakBreadthStreak = calcConditionStreak(data, currentDt, e => e && e.market && e.market.upRatio != null && e.market.upRatio < 0.35);
+  const highTurnoverStreak = calcConditionStreak(data, currentDt, e => e && e.concentration && e.concentration.totalAmount != null && e.concentration.totalAmount >= 30000);
+  const breadthCacheSuspicious = detectBreadthCacheSuspicion(data, currentDt);
 
   const themes = getAllThemeItems(entry);
   const inflowThemes = themes.filter(t => t.flow != null).sort((a, b) => b.flow - a.flow).slice(0, 4);
@@ -4443,18 +4573,48 @@ function renderProfessionalReview(data, currentDt, phase) {
   if (upCount != null && downCount != null) headlineParts.push(`${formatCount(upCount)}涨/${formatCount(downCount)}跌`);
   const headline = headlineParts.join('，') || phase.description;
 
-  const professionalConclusion = (() => {
-    if (breadthTone === 'negative' && themeFlow != null && themeFlow > 0 && wideFlow != null && wideFlow < 0) {
-      return '资金没有全面扩散，而是在宽基撤退、主题加仓之间做结构切换。今天更应寻找被资金和成交额共同验证的方向。';
-    }
-    if (breadthTone === 'negative' && total != null && total >= 30000) {
-      return '成交额很高，但宽度偏弱，说明市场不是普涨环境，主线需要更严格地用成交热度和主题宽度确认。';
-    }
-    if (themeFlow != null && themeFlow > 0) {
-      return '主题ETF仍有主动资金流入，主线判断优先看流入方向是否获得TOP100成交热度配合。';
-    }
-    return phase.description;
+  const marketType = (() => {
+    if (total != null && total >= 30000 && breadthTone === 'negative') return '高成交、弱宽度的结构行情';
+    if (themeFlow != null && themeFlow > 0 && wideFlow != null && wideFlow < 0) return '宽基撤退、主题加仓的切换行情';
+    if (wideFlow != null && wideFlow > 0 && breadthTone !== 'negative') return '权重承接、宽度尚可的修复行情';
+    if (total != null && c.amountVs5d != null && c.amountVs5d < -10) return '缩量观察行情';
+    return phase.label;
   })();
+
+  const professionalNarrative = {
+    market: (() => {
+      if (breadthCacheSuspicious) return `今天先定性为${marketType}，但上涨/下跌家数连续多日完全相同，宽度数据疑似缓存，宽度证据需要降权。`;
+      if (breadthTone === 'negative') return `今天是${marketType}：成交不低，但${breadthText}，说明指数和少数方向不能代表全市场体感。`;
+      if (breadthTone === 'positive') return `今天是${marketType}：宽度改善，资金扩散质量优于单纯指数上涨。`;
+      return `今天是${marketType}：方向判断主要依赖成交额、ETF资金和TOP100成交热度。`;
+    })(),
+    flow: (() => {
+      const wideText = wide5.sum != null ? `宽基ETF近${wide5.days}日累计${fmtFlow(wide5.sum)}亿` : '宽基ETF近5日数据不足';
+      const themeText = theme5.sum != null ? `主题ETF近${theme5.days}日累计${fmtFlow(theme5.sum)}亿` : '主题ETF近5日数据不足';
+      const leadText = leadTheme ? `当日最强流入是${leadTheme.theme}（${fmtFlow(leadTheme.flow)}亿）` : '当日暂无明确主题流入方向';
+      return `${wideText}，${themeText}，${leadText}。这决定了今天更像资金在选择方向，而不是无差别扩散。`;
+    })(),
+    verify: (() => {
+      const leader = heatLeaders[0];
+      if (leader && leader.heatShare != null) {
+        return `下一交易日优先验证${leader.themeName}：TOP100热度能否维持在${(leader.heatShare * 100).toFixed(1)}%附近，主题ETF是否继续净流入，同时市场宽度不能继续恶化。`;
+      }
+      return '下一交易日优先验证：主题ETF是否延续流入、宽基ETF是否止流出、市场宽度是否修复。';
+    })()
+  };
+
+  const margin5Yi = margin5 != null ? margin5 * 10000 : null;
+  const margin10Yi = margin10 != null ? margin10 * 10000 : null;
+  const marginJumpSuspicious = (margin5Yi != null && Math.abs(margin5Yi) > 5000) || (margin10Yi != null && Math.abs(margin10Yi) > 8000);
+
+  const signalChips = [];
+  signalChips.push(renderSignalChip('成交连续性', highTurnoverStreak >= 2 ? `连续${highTurnoverStreak}日破3万亿` : '未连续破3万亿', highTurnoverStreak >= 2 ? 'strong' : 'neutral', total != null ? `当日${fmt(total)}亿` : ''));
+  signalChips.push(renderSignalChip('宽度连续性', weakBreadthStreak >= 2 ? `连续${weakBreadthStreak}日弱宽度` : '未连续弱宽度', weakBreadthStreak >= 2 ? 'risk' : 'neutral', upRatio != null ? `上涨占比${(upRatio * 100).toFixed(1)}%` : ''));
+  signalChips.push(renderSignalChip('宽基ETF', wide5.sum != null ? `5日${fmtFlow(wide5.sum)}亿` : '--', wide5.sum != null && wide5.sum < 0 ? 'risk' : (wide5.sum != null && wide5.sum > 0 ? 'strong' : 'neutral'), wide10.sum != null ? `10日${fmtFlow(wide10.sum)}亿` : ''));
+  signalChips.push(renderSignalChip('主题ETF', theme5.sum != null ? `5日${fmtFlow(theme5.sum)}亿` : '--', theme5.sum != null && theme5.sum > 0 ? 'strong' : (theme5.sum != null && theme5.sum < 0 ? 'risk' : 'neutral'), theme10.sum != null ? `10日${fmtFlow(theme10.sum)}亿` : ''));
+  signalChips.push(renderSignalChip('融资节奏', marginJumpSuspicious ? '口径跳变待核验' : (margin5Yi != null ? `5日${fmtFlow(margin5Yi)}亿` : '--'), marginJumpSuspicious ? 'risk' : (margin5Yi != null && margin5Yi > 0 ? 'strong' : (margin5Yi != null && margin5Yi < 0 ? 'risk' : 'neutral')), marginJumpSuspicious ? '融资余额序列异常' : (margin10Yi != null ? `10日${fmtFlow(margin10Yi)}亿` : '')));
+  if (breadthCacheSuspicious) signalChips.push(renderSignalChip('数据异常', '宽度疑似缓存', 'risk', '连续3日涨跌家数相同'));
+  if (marginJumpSuspicious) signalChips.push(renderSignalChip('数据异常', '融资口径疑似跳变', 'risk', '连续变化不用于判断'));
 
   return `
   <div class="pro-review-card">
@@ -4462,7 +4622,11 @@ function renderProfessionalReview(data, currentDt, phase) {
       <div>
         <div class="pro-eyebrow">专业复盘摘要</div>
         <div class="pro-headline">${headline}</div>
-        <div class="pro-conclusion">${professionalConclusion}</div>
+        <div class="pro-narrative">
+          <div><strong>市场定性：</strong>${professionalNarrative.market}</div>
+          <div><strong>资金穿透：</strong>${professionalNarrative.flow}</div>
+          <div><strong>明日验证：</strong>${professionalNarrative.verify}</div>
+        </div>
       </div>
       <div class="pro-phase ${phase.phase}">${phase.label}</div>
     </div>
@@ -4490,6 +4654,10 @@ function renderProfessionalReview(data, currentDt, phase) {
       </div>
     </div>
 
+    <div class="pro-signal-tape">
+      ${signalChips.join('')}
+    </div>
+
     <div class="pro-columns">
       <div class="pro-panel">
         <div class="pro-panel-title">资金穿透方向</div>
@@ -4503,7 +4671,7 @@ function renderProfessionalReview(data, currentDt, phase) {
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
         <div class="pro-mainline-list">
-          ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.theme}</span><strong>${m.status}</strong><em>${m.signalAgreement || '--'} · TOP100${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
+          ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status}</strong><em>${m.signalAgreement || '--'} · TOP100${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
         </div>
         <div class="pro-heat-tags">
           ${heatLeaders.map(m => `<span>${m.themeName || m.theme || '--'} ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
