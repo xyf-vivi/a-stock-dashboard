@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -1056,7 +1056,7 @@ tbody tr:last-child td { border-bottom: none; }
     <span class="meta-item"><span id="metaThemeBreadthDot" class="meta-dot "></span>主题宽度: <span id="metaThemeBreadthDate">2026-06-23</span></span>
     <span class="meta-item"><span id="metaMarginDot" class="meta-dot "></span>融资余额: <span id="metaMarginDate">2026-06-23</span></span>
   </div>
-  
+
 
   <div class="tabs-bar" id="tabsBar">
     <button class="tab-btn active" data-tab="review"><span class="tab-num">01</span>今日复盘</button>
@@ -1065,11 +1065,72 @@ tbody tr:last-child td { border-bottom: none; }
     <button class="tab-btn" data-tab="validate"><span class="tab-num">04</span>主线验证</button>
     <button class="tab-btn" data-tab="quality"><span class="tab-num">05</span>数据说明</button>
   </div>
-  
+
 <div id="pageHost">
 
   <div class="tab-content active" id="tab-review">
     <div class="wrap">
+
+  <div class="pro-review-card">
+    <div class="pro-review-head">
+      <div>
+        <div class="pro-eyebrow">专业复盘摘要</div>
+        <div class="pro-headline">成交额3.5万亿，缩量2961亿，连续6日破3万亿，617涨/2,044跌</div>
+        <div class="pro-conclusion">成交额很高，但宽度偏弱，说明市场不是普涨环境，主线需要更严格地用成交热度和主题宽度确认。</div>
+      </div>
+      <div class="pro-phase watch">温和观望</div>
+    </div>
+
+    <div class="pro-fact-grid">
+      <div class="pro-fact">
+        <div class="pro-fact-label">成交额</div>
+        <div class="pro-fact-value">3.5万<span>亿</span></div>
+        <div class="pro-fact-note">缩量 2961亿 · 连续6日破3万亿</div>
+      </div>
+      <div class="pro-fact negative">
+        <div class="pro-fact-label">市场宽度</div>
+        <div class="pro-fact-value">23.1<span>%上涨</span></div>
+        <div class="pro-fact-note">617只上涨，2,044只下跌，上涨占比23.1%</div>
+      </div>
+      <div class="pro-fact dn">
+        <div class="pro-fact-label">宽基ETF</div>
+        <div class="pro-fact-value">-231<span>亿</span></div>
+        <div class="pro-fact-note">连续6日流出，累计-447亿</div>
+      </div>
+      <div class="pro-fact dn">
+        <div class="pro-fact-label">主题ETF</div>
+        <div class="pro-fact-value">-23.7<span>亿</span></div>
+        <div class="pro-fact-note">连续3日流出，累计-67.0亿</div>
+      </div>
+    </div>
+
+    <div class="pro-columns">
+      <div class="pro-panel">
+        <div class="pro-panel-title">资金穿透方向</div>
+        <div class="pro-flow-list">
+          <div class="pro-flow-row"><span>有色金属</span><strong class="up">+4.6亿</strong><em>5日 -5.4亿</em></div><div class="pro-flow-row"><span>红利</span><strong class="up">+2.7亿</strong><em>5日 +34.3亿</em></div><div class="pro-flow-row"><span>创新药</span><strong class="up">+1.5亿</strong><em>5日 +1.2亿</em></div><div class="pro-flow-row"><span>AI</span><strong class="up">+0.4亿</strong><em>5日 -8.6亿</em></div>
+        </div>
+        <div class="pro-sell-list">
+          <span>证券 -20.2亿</span><span>黄金 -8.8亿</span><span>机器人 -1.3亿</span>
+        </div>
+      </div>
+      <div class="pro-panel">
+        <div class="pro-panel-title">主线候选与成交热度</div>
+        <div class="pro-mainline-list">
+          <div class="pro-empty">暂无通过验证的主线候选</div>
+        </div>
+        <div class="pro-heat-tags">
+          <span>undefined 24.8%</span><span>undefined 24.2%</span><span>undefined 16.4%</span><span>undefined 13.0%</span>
+        </div>
+      </div>
+      <div class="pro-panel">
+        <div class="pro-panel-title">里程碑信号</div>
+        <div class="pro-milestones">
+          <div class="pro-milestone watch"><strong>融资余额逼近3万亿</strong><span>当前2.9698万亿，观察加仓节奏是否继续放缓</span></div><div class="pro-milestone strong"><strong>成交额连续6日破3万亿</strong><span>当日成交3.5万亿，流动性处于高位</span></div><div class="pro-milestone risk"><strong>宽基ETF连续6日流出</strong><span>区间累计-447亿，权重资金仍在撤退</span></div><div class="pro-milestone strong"><strong>有色金属成为最一致流入方向</strong><span>在前四大流入主题中占50%，当日+4.6亿</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
       <!-- 01 市场速览 -->
       <div class="module-title">
@@ -1077,7 +1138,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="title">市场速览</span>
         <span class="subtitle">06/23 指数行情仅为背景参考</span>
       </div>
-      
+
   <div class="grid grid-6" style="margin-bottom:var(--sp-2)">
     <div class="idx-card">
       <div class="idx-name">上证50</div>
@@ -1141,7 +1202,7 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="kpi-benchmark"><span class="dstatus confirmed">已确认</span></div>
     </div>
   </div>
-  
+
 
       <!-- 02 核心判断 -->
       <div class="module-title">
@@ -1149,7 +1210,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="title">核心判断</span>
         <span class="subtitle">综合四信号体系</span>
       </div>
-      
+
   <div class="verdict-card">
     <div class="verdict-phase">
       <span class="verdict-phase-tag watch">温和观望</span>
@@ -1158,7 +1219,7 @@ tbody tr:last-child td { border-bottom: none; }
     <div class="verdict-sentence">多空信号交织，缺乏一致性方向</div>
     <div class="verdict-evidence">
       <div class="evidence-pill positive"><span class="evi-icon">✓</span>流动性扩张</div><div class="evidence-pill positive"><span class="evi-icon">✓</span>宽度收窄(代理)</div><div class="evidence-pill positive"><span class="evi-icon">✓</span>资金流出</div><div class="evidence-pill positive"><span class="evi-icon">✓</span>结构拥挤</div>
-      
+
     </div>
     <div class="verdict-validate">📋 <strong>下一交易日验证：</strong>等待信号一致性提升</div>
     <div class="consistency-bar">
@@ -1196,7 +1257,7 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="signal-card-detail">TOP100集中度偏高(85%分位)；集中度上升0.7pct（描述，未计权）</div>
     </div></div>
   </div>
-  
+
 
       <!-- 03 资金脉搏 -->
       <div class="module-title">
@@ -1204,7 +1265,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="title">资金脉搏</span>
         <span class="subtitle">三层分层：有没有钱 → 钱是否集中 → 钱流向哪里</span>
       </div>
-      
+
   <div class="grid grid-6">
     <div class="kpi-card" data-jump="capital">
       <div class="kpi-layer-tag">L1 市场有没有钱</div>
@@ -1273,7 +1334,7 @@ tbody tr:last-child td { border-bottom: none; }
         <div class="kpi-benchmark">5日 -48.0亿 · 覆盖率 100%</div>
         <div class="kpi-date">06/23</div>
       </div></div>
-  
+
 
       <!-- 04 主题结构地图 -->
       <div class="module-title">
@@ -1295,7 +1356,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 326亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">创新药</span>
@@ -1309,7 +1370,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 240亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">有色金属</span>
@@ -1323,7 +1384,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 372亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">AI</span>
@@ -1337,7 +1398,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 321亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">半导体</span>
@@ -1351,7 +1412,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 1005亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">通信</span>
@@ -1365,7 +1426,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 752亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">化工</span>
@@ -1379,7 +1440,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="theme-card-coverage">覆盖率 100% · 规模 216亿</div>
     </div>
-  
+
     <div class="theme-card" data-jump="etf">
       <div class="theme-card-header">
         <span class="theme-card-name">机器人</span>
@@ -1401,7 +1462,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="collapse-body" id="theme-more">
         <div class="theme-map" style="margin-top:var(--sp-1)">
-          
+
           <div class="theme-card" data-jump="etf">
             <div class="theme-card-header">
               <span class="theme-card-name">黄金</span>
@@ -1436,9 +1497,9 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="title">明日观察</span>
         <span class="subtitle">情景验证条件</span>
       </div>
-      
+
   <div class="grid grid-3">
-    
+
     <div class="scenario-card">
       <div class="scenario-direction">🔍 成交额持续性</div>
       <div class="scenario-current">当前成交额处于扩张状态</div>
@@ -1452,7 +1513,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="scenario-action">→ 维持当前判断强度</div>
     </div>
-    
+
     <div class="scenario-card">
       <div class="scenario-direction">🔍 ETF流出缓解</div>
       <div class="scenario-current">宽基ETF今日净流出</div>
@@ -1466,7 +1527,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="scenario-action">→ 保持谨慎</div>
     </div>
-    
+
     <div class="scenario-card">
       <div class="scenario-direction">🔍 集中度风险</div>
       <div class="scenario-current">TOP100集中度偏高</div>
@@ -1480,12 +1541,12 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="scenario-action">→ 警惕抱团瓦解风险</div>
     </div>
-    
+
   </div>
 
     </div>
   </div>
-  
+
 
   <div class="tab-content" id="tab-capital">
     <div class="wrap">
@@ -1642,7 +1703,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
     </div>
   </div>
-  
+
 
   <div class="tab-content" id="tab-etf">
     <div class="wrap">
@@ -1751,7 +1812,7 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="quad-wrap" id="quadChart"></div>
 
       <!-- 明细 -->
-      
+
       <div class="module-title">
         <span class="num">03</span><span class="title">ETF明细</span>
         <span class="subtitle">当日有显著资金流的ETF</span>
@@ -1771,7 +1832,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">建信上证50ETF <span style="color:var(--t4);font-size:10px">510800</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">上证50</td>
@@ -1782,7 +1843,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">510360 <span style="color:var(--t4);font-size:10px">510360</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">沪深300</td>
@@ -1793,7 +1854,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">广发中证500ETF <span style="color:var(--t4);font-size:10px">510510</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证500</td>
@@ -1804,7 +1865,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">南方中证1000ETF <span style="color:var(--t4);font-size:10px">512100</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证1000</td>
@@ -1815,7 +1876,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">广发中证1000ETF <span style="color:var(--t4);font-size:10px">560010</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证1000</td>
@@ -1826,7 +1887,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">华夏中证1000ETF <span style="color:var(--t4);font-size:10px">159845</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证1000</td>
@@ -1837,7 +1898,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">华泰柏瑞中证A500ETF <span style="color:var(--t4);font-size:10px">563360</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证A500</td>
@@ -1848,7 +1909,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">国泰中证A500ETF <span style="color:var(--t4);font-size:10px">159338</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证A500</td>
@@ -1859,7 +1920,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">560230 <span style="color:var(--t4);font-size:10px">560230</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">中证A500</td>
@@ -1870,7 +1931,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">华夏上证科创板50ETF <span style="color:var(--t4);font-size:10px">588000</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">科创50</td>
@@ -1881,7 +1942,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">易方达创业板ETF <span style="color:var(--t4);font-size:10px">159915</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">创业板指</td>
@@ -1892,7 +1953,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">159916 <span style="color:var(--t4);font-size:10px">159916</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">创业板指</td>
@@ -1903,7 +1964,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">华安创业板50ETF <span style="color:var(--t4);font-size:10px">159949</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">创业板50</td>
@@ -1914,7 +1975,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">易方达深证100ETF <span style="color:var(--t4);font-size:10px">159901</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">深证100</td>
@@ -1925,7 +1986,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">华夏上证50ETF <span style="color:var(--t4);font-size:10px">510050</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">上证50</td>
@@ -1936,7 +1997,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">易方达上证50ETF <span style="color:var(--t4);font-size:10px">510100</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">上证50</td>
@@ -1947,7 +2008,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">天弘上证50ETF <span style="color:var(--t4);font-size:10px">530000</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">上证50</td>
@@ -1958,7 +2019,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">华泰柏瑞沪深300ETF <span style="color:var(--t4);font-size:10px">510300</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">沪深300</td>
@@ -1969,7 +2030,7 @@ tbody tr:last-child td { border-bottom: none; }
           <td data-label="规模">--</td>
           <td data-label="状态"><span class="dstatus confirmed">已确认</span></td>
         </tr>
-      
+
         <tr>
           <td data-label="ETF名称">易方达沪深300ETF <span style="color:var(--t4);font-size:10px">510310</span></td>
           <td data-label="跟踪指数" style="color:var(--t4)">沪深300</td>
@@ -1986,7 +2047,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
 
       <!-- 主题ETF -->
-      
+
       <div class="module-title">
         <span class="num">04</span><span class="title">主题ETF</span>
         <span class="subtitle">5大类 · 10个细分方向 · 数量覆盖100% · 规模覆盖100% · 0只份额待确认</span>
@@ -2006,7 +2067,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag outflow">持续流出</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">AI <span style="color:var(--t4);font-size:10px">[科技成长]</span></td>
         <td data-label="当日" class="up">+0.4</td>
@@ -2017,7 +2078,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag spike">短线异动</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">通信 <span style="color:var(--t4);font-size:10px">[科技成长]</span></td>
         <td data-label="当日" class="dn">-0.8</td>
@@ -2028,7 +2089,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag outflow">持续流出</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">机器人 <span style="color:var(--t4);font-size:10px">[科技成长]</span></td>
         <td data-label="当日" class="dn">-1.3</td>
@@ -2039,7 +2100,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag outflow">持续流出</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">创新药 <span style="color:var(--t4);font-size:10px">[医药生物]</span></td>
         <td data-label="当日" class="up">+1.5</td>
@@ -2050,7 +2111,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag sustained">持续流入</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">证券 <span style="color:var(--t4);font-size:10px">[消费金融]</span></td>
         <td data-label="当日" class="dn">-20.2</td>
@@ -2061,7 +2122,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag outflow">持续流出</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">红利 <span style="color:var(--t4);font-size:10px">[红利低波]</span></td>
         <td data-label="当日" class="up">+2.7</td>
@@ -2072,7 +2133,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag sustained">持续流入</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">黄金 <span style="color:var(--t4);font-size:10px">[周期资源]</span></td>
         <td data-label="当日" class="dn">-8.8</td>
@@ -2083,7 +2144,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag outflow">持续流出</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">有色金属 <span style="color:var(--t4);font-size:10px">[周期资源]</span></td>
         <td data-label="当日" class="up">+4.6</td>
@@ -2094,7 +2155,7 @@ tbody tr:last-child td { border-bottom: none; }
         <td data-label="覆盖率" title="数量覆盖率/规模覆盖率">100% / 100%</td>
         <td data-label="状态"><span class="theme-status-tag spike">短线异动</span></td>
       </tr>
-    
+
       <tr>
         <td data-label="主题">化工 <span style="color:var(--t4);font-size:10px">[周期资源]</span></td>
         <td data-label="当日" class="dn">-1.0</td>
@@ -2112,7 +2173,7 @@ tbody tr:last-child td { border-bottom: none; }
 
     </div>
   </div>
-  
+
 
   <div class="tab-content" id="tab-validate">
     <div class="wrap">
@@ -2128,7 +2189,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">流动性扩张</div>
       <div class="signal-card-detail">略高于5日均值；处于20日高位(85%分位)</div>
-      
+
     </div>
     <div class="signal-card">
       <div class="signal-card-header">
@@ -2146,7 +2207,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">资金流出</div>
       <div class="signal-card-detail">宽基净流出230.5亿；ETF流入处于20日低位(0%分位)；近5日仅0日流入</div>
-      
+
     </div>
     <div class="signal-card">
       <div class="signal-card-header">
@@ -2155,7 +2216,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">结构拥挤</div>
       <div class="signal-card-detail">TOP100集中度偏高(85%分位)；集中度上升0.7pct（描述，未计权）</div>
-      
+
     </div></div>
 
       <div class="verdict-card" style="margin-top:var(--sp-2)">
@@ -2193,7 +2254,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag spike">潜在主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>有色金属</strong></td>
       <td data-label="当日ETF" class="up">+4.6</td>
@@ -2207,7 +2268,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag spike">潜在主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>红利</strong></td>
       <td data-label="当日ETF" class="up">+2.7</td>
@@ -2221,7 +2282,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag unknown">防御配置</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>AI</strong></td>
       <td data-label="当日ETF" class="up">+0.4</td>
@@ -2235,7 +2296,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag spike">潜在主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>通信</strong></td>
       <td data-label="当日ETF" class="dn">-0.8</td>
@@ -2249,7 +2310,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag unknown">非主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>化工</strong></td>
       <td data-label="当日ETF" class="dn">-1.0</td>
@@ -2263,7 +2324,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag unknown">非主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>半导体</strong></td>
       <td data-label="当日ETF" class="dn">-0.7</td>
@@ -2277,7 +2338,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag unknown">非主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>机器人</strong></td>
       <td data-label="当日ETF" class="dn">-1.3</td>
@@ -2291,7 +2352,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag unknown">非主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>黄金</strong></td>
       <td data-label="当日ETF" class="dn">-8.8</td>
@@ -2305,7 +2366,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="theme-status-tag unknown">非主线</span>
       </td>
     </tr>
-  
+
     <tr>
       <td data-label="主题"><strong>证券</strong></td>
       <td data-label="当日ETF" class="dn">-20.2</td>
@@ -2334,7 +2395,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
     </div>
   </div>
-  
+
 
   <div class="tab-content" id="tab-quality">
     <div class="wrap">
@@ -2458,7 +2519,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <script>/**
@@ -4471,6 +4532,7 @@ function renderReview(data, currentDt) {
   return `
   <div class="tab-content active" id="tab-review">
     <div class="wrap">
+      ${renderProfessionalReview(data, currentDt, phase)}
 
       <!-- 01 市场速览 -->
       <div class="module-title">
