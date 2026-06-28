@@ -1032,7 +1032,7 @@ tbody tr:last-child td { border-bottom: none; }
   color: var(--t3);
   font-size: var(--fs-tiny);
 }
-.pro-sell-list, .pro-heat-tags {
+.pro-sell-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -1040,7 +1040,7 @@ tbody tr:last-child td { border-bottom: none; }
   padding-top: var(--sp-2);
   border-top: 1px dashed var(--border);
 }
-.pro-sell-list span, .pro-heat-tags span {
+.pro-sell-list span {
   font-size: var(--fs-tiny);
   color: var(--t2);
   background: var(--bg-card2);
@@ -1252,10 +1252,7 @@ tbody tr:last-child td { border-bottom: none; }
             <span>热度</span>
             <span>证据</span>
           </div>
-          <div class="pro-mainline-row"><span>半导体</span><strong>热度观察</strong><em>29.0%</em><small>未通过验证</small></div><div class="pro-mainline-row"><span>通信</span><strong>热度观察</strong><em>23.0%</em><small>未通过验证</small></div><div class="pro-mainline-row"><span>AI</span><strong>热度观察</strong><em>18.7%</em><small>未通过验证</small></div><div class="pro-mainline-row"><span>有色金属</span><strong>热度观察</strong><em>7.7%</em><small>未通过验证</small></div>
-        </div>
-        <div class="pro-heat-tags">
-          <span>半导体 热度 29.0%</span><span>通信 热度 23.0%</span><span>AI 热度 18.7%</span><span>有色金属 热度 7.7%</span>
+          <div class="pro-mainline-row"><span>半导体</span><strong>热度观察</strong><em>29.0%</em><small>证据不足</small></div><div class="pro-mainline-row"><span>通信</span><strong>热度观察</strong><em>23.0%</em><small>证据不足</small></div><div class="pro-mainline-row"><span>AI</span><strong>热度观察</strong><em>18.7%</em><small>证据不足</small></div><div class="pro-mainline-row"><span>有色金属</span><strong>热度观察</strong><em>7.7%</em><small>证据不足</small></div>
         </div>
       </div>
       <div class="pro-panel">
@@ -4794,11 +4791,8 @@ function renderProfessionalReview(data, currentDt, phase) {
           ${(mainPositive.length > 0 ? mainPositive : heatLeaders.slice(0, 4).map(m => ({
             ...m,
             status: '热度观察',
-            signalAgreement: '未通过验证'
+            signalAgreement: '证据不足'
           }))).map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status || '--'}</strong><em>${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em><small>${m.signalAgreement || '--'}</small></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
-        </div>
-        <div class="pro-heat-tags">
-          ${heatLeaders.map(m => `<span>${m.themeName || m.theme || '--'} 热度 ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
         </div>
       </div>
       <div class="pro-panel">
