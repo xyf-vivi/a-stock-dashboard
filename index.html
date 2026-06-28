@@ -814,6 +814,14 @@ tbody tr:last-child td { border-bottom: none; }
 }
 .signal-card-name { font-size: var(--fs-body); font-weight: 600; }
 .signal-card-detail { font-size: var(--fs-small); color: var(--t2); margin-top: 4px; }
+.signal-card-meta {
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.signal-card-meta.positive { color: var(--c-up); }
+.signal-card-meta.negative { color: var(--c-down); }
+.signal-card-meta.neutral { color: var(--c-neutral); }
 .signal-strength {
   display: flex;
   gap: 3px;
@@ -828,6 +836,11 @@ tbody tr:last-child td { border-bottom: none; }
 .signal-bar.active.positive { background: var(--c-up); }
 .signal-bar.active.negative { background: var(--c-down); }
 .signal-bar.active.neutral { background: var(--c-neutral); }
+.signal-legend {
+  font-size: var(--fs-tiny);
+  color: var(--t3);
+  padding-left: 2px;
+}
 
 /* === 详情展开行 === */
 .det-row {
@@ -1373,12 +1386,14 @@ tbody tr:last-child td { border-bottom: none; }
       <span class="consistency-value">50%</span>
     </div>
     <div class="verdict-hint">四个信号分别看成交、宽度、ETF支撑和结构。</div>
+    <div class="signal-legend">红柱=正向，绿柱=负向，柱子越多代表信号越强。</div>
     <div class="signal-grid">
     <div class="signal-card">
       <div class="signal-card-header">
         <span class="signal-card-name">流动性扩张</span>
         <div class="signal-strength"><div class="signal-bar active positive"></div><div class="signal-bar active positive"></div><div class="signal-bar "></div><div class="signal-bar active positive"></div><div class="signal-bar active positive"></div></div>
       </div>
+      <div class="signal-card-meta positive">当前：偏正 · 红柱=正向，绿柱=负向</div>
       <div class="signal-card-detail">略高于5日均值；处于20日高位(85%分位)</div>
     </div>
     <div class="signal-card">
@@ -1386,6 +1401,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="signal-card-name">宽度收窄</span>
         <div class="signal-strength"><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div></div>
       </div>
+      <div class="signal-card-meta negative">当前：偏负 · 红柱=正向，绿柱=负向</div>
       <div class="signal-card-detail">全市场上涨占比14.3%，宽度明显收窄</div>
     </div>
     <div class="signal-card">
@@ -1393,6 +1409,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="signal-card-name">资金流出</span>
         <div class="signal-strength"><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div></div>
       </div>
+      <div class="signal-card-meta negative">当前：偏负 · 红柱=正向，绿柱=负向</div>
       <div class="signal-card-detail">宽基净流出2.1亿；近5日仅0日流入</div>
     </div>
     <div class="signal-card">
@@ -1400,6 +1417,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="signal-card-name">结构拥挤</span>
         <div class="signal-strength"><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar "></div></div>
       </div>
+      <div class="signal-card-meta negative">当前：偏负 · 红柱=正向，绿柱=负向</div>
       <div class="signal-card-detail">TOP100集中度偏高(95%分位)</div>
     </div></div>
   </div>
@@ -2325,7 +2343,7 @@ tbody tr:last-child td { border-bottom: none; }
     <div class="wrap">
       <div class="module-title">
         <span class="num">01</span><span class="title">四信号交叉验证</span>
-        <span class="subtitle">一致性: 信号基本一致 (50%)</span>
+        <span class="subtitle">一致性: 信号基本一致 (50%) · 红柱=正向</span>
       </div>
       <div class="signal-grid">
     <div class="signal-card">
@@ -4950,6 +4968,8 @@ function renderVerdict(phase, consistency, signals) {
   // 四信号状态
   const signalBars = ['liquidity', 'breadth', 'support', 'structure'].map(key => {
     const s = signals[key];
+    const directionLabel = s.strength > 0 ? '偏正' : (s.strength < 0 ? '偏负' : '中性');
+    const directionClass = s.strength > 0 ? 'positive' : (s.strength < 0 ? 'negative' : 'neutral');
     const bars = [-2, -1, 0, 1, 2].map(level => {
       const active = Math.abs(s.strength) >= Math.abs(level) && level !== 0;
       const cls = active ? `active ${s.strength > 0 ? 'positive' : 'negative'}` : '';
@@ -4961,6 +4981,7 @@ function renderVerdict(phase, consistency, signals) {
         <span class="signal-card-name">${s.label}</span>
         <div class="signal-strength">${bars}</div>
       </div>
+      <div class="signal-card-meta ${directionClass}">当前：${directionLabel} · 红柱=正向，绿柱=负向</div>
       <div class="signal-card-detail">${s.detail}</div>
     </div>`;
   }).join('');
@@ -4985,6 +5006,7 @@ function renderVerdict(phase, consistency, signals) {
       <span class="consistency-value">${(consistency.score * 100).toFixed(0)}%</span>
     </div>
     <div class="verdict-hint">四个信号分别看成交、宽度、ETF支撑和结构。</div>
+    <div class="signal-legend">红柱=正向，绿柱=负向，柱子越多代表信号越强。</div>
     <div class="signal-grid">${signalBars}</div>
   </div>
   `;
@@ -5617,7 +5639,7 @@ function renderValidate(data, currentDt) {
     <div class="wrap">
       <div class="module-title">
         <span class="num">01</span><span class="title">四信号交叉验证</span>
-        <span class="subtitle">一致性: ${consistency.label} (${(consistency.score*100).toFixed(0)}%)</span>
+        <span class="subtitle">一致性: ${consistency.label} (${(consistency.score*100).toFixed(0)}%) · 红柱=正向</span>
       </div>
       <div class="signal-grid">${signalCards}</div>
 
