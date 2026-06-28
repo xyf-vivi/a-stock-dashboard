@@ -1368,7 +1368,7 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       
   <div class="verdict-card">
-    <div class="verdict-strap">这块先回答一个问题：今天市场更像增量共振、抱团、扩散还是降温。</div>
+    <div class="verdict-strap">这块先回答一个问题：今天市场更像加量进场、资金抱团、资金扩散，还是整体降温。</div>
     <div class="verdict-phase">
       <span class="verdict-phase-tag watch">当前结论：温和观望</span>
       <span class="verdict-confidence medium">一致度: 信号基本一致</span>
@@ -1385,7 +1385,7 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="consistency-track"><div class="consistency-fill medium" style="width:50%"></div></div>
       <span class="consistency-value">50%</span>
     </div>
-    <div class="verdict-hint">四个信号分别看成交、宽度、ETF支撑和结构。</div>
+    <div class="verdict-hint">四个信号分别看钱有没有变多、上涨是不是更广、ETF有没有托底、资金是集中还是分散。</div>
     <div class="signal-legend">红柱=正向，绿柱=负向，柱子越多代表信号越强。</div>
     <div class="signal-grid">
     <div class="signal-card">
@@ -2342,13 +2342,13 @@ tbody tr:last-child td { border-bottom: none; }
   <div class="tab-content" id="tab-validate">
     <div class="wrap">
       <div class="module-title">
-        <span class="num">01</span><span class="title">四信号交叉验证</span>
-        <span class="subtitle">一致性: 信号基本一致 (50%) · 红柱=正向</span>
+        <span class="num">01</span><span class="title">四个判断信号</span>
+        <span class="subtitle">先看四个信号，再看结论 · 红柱=正向</span>
       </div>
       <div class="signal-grid">
     <div class="signal-card">
       <div class="signal-card-header">
-        <span class="signal-card-name">流动性信号</span>
+        <span class="signal-card-name">成交有没有放大</span>
         <div class="signal-strength"><div class="signal-bar active positive"></div><div class="signal-bar active positive"></div><div class="signal-bar "></div><div class="signal-bar active positive"></div><div class="signal-bar active positive"></div></div>
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">流动性扩张</div>
@@ -2357,7 +2357,7 @@ tbody tr:last-child td { border-bottom: none; }
     </div>
     <div class="signal-card">
       <div class="signal-card-header">
-        <span class="signal-card-name">市场宽度信号</span>
+        <span class="signal-card-name">上涨是不是更广</span>
         <div class="signal-strength"><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div></div>
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">宽度收窄</div>
@@ -2366,7 +2366,7 @@ tbody tr:last-child td { border-bottom: none; }
     </div>
     <div class="signal-card">
       <div class="signal-card-header">
-        <span class="signal-card-name">资金承接信号</span>
+        <span class="signal-card-name">ETF有没有托底</span>
         <div class="signal-strength"><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar active negative"></div></div>
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">资金流出</div>
@@ -2375,7 +2375,7 @@ tbody tr:last-child td { border-bottom: none; }
     </div>
     <div class="signal-card">
       <div class="signal-card-header">
-        <span class="signal-card-name">资金结构信号</span>
+        <span class="signal-card-name">资金是集中还是分散</span>
         <div class="signal-strength"><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar "></div><div class="signal-bar active negative"></div><div class="signal-bar "></div></div>
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">结构拥挤</div>
@@ -4988,7 +4988,7 @@ function renderVerdict(phase, consistency, signals) {
 
   return `
   <div class="verdict-card">
-    <div class="verdict-strap">这块先回答一个问题：今天市场更像增量共振、抱团、扩散还是降温。</div>
+    <div class="verdict-strap">这块先回答一个问题：今天市场更像加量进场、资金抱团、资金扩散，还是整体降温。</div>
     <div class="verdict-phase">
       <span class="verdict-phase-tag ${phase.phase}">当前结论：${phase.label}</span>
       <span class="verdict-confidence ${consistency.level}">一致度: ${consistency.label}</span>
@@ -5005,7 +5005,7 @@ function renderVerdict(phase, consistency, signals) {
       <div class="consistency-track"><div class="consistency-fill ${consistency.level}" style="width:${consistency.score * 100}%"></div></div>
       <span class="consistency-value">${(consistency.score * 100).toFixed(0)}%</span>
     </div>
-    <div class="verdict-hint">四个信号分别看成交、宽度、ETF支撑和结构。</div>
+    <div class="verdict-hint">四个信号分别看钱有没有变多、上涨是不是更广、ETF有没有托底、资金是集中还是分散。</div>
     <div class="signal-legend">红柱=正向，绿柱=负向，柱子越多代表信号越强。</div>
     <div class="signal-grid">${signalBars}</div>
   </div>
@@ -5597,7 +5597,7 @@ function renderValidate(data, currentDt) {
     return `
     <div class="signal-card">
       <div class="signal-card-header">
-        <span class="signal-card-name">${key === 'liquidity' ? '流动性信号' : key === 'breadth' ? '市场宽度信号' : key === 'support' ? '资金承接信号' : '资金结构信号'}</span>
+        <span class="signal-card-name">${key === 'liquidity' ? '成交有没有放大' : key === 'breadth' ? '上涨是不是更广' : key === 'support' ? 'ETF有没有托底' : '资金是集中还是分散'}</span>
         <div class="signal-strength">${bars}</div>
       </div>
       <div style="font-size:var(--fs-small);font-weight:600;color:var(--t1)">${s.label}</div>
@@ -5638,8 +5638,8 @@ function renderValidate(data, currentDt) {
   <div class="tab-content" id="tab-validate">
     <div class="wrap">
       <div class="module-title">
-        <span class="num">01</span><span class="title">四信号交叉验证</span>
-        <span class="subtitle">一致性: ${consistency.label} (${(consistency.score*100).toFixed(0)}%) · 红柱=正向</span>
+        <span class="num">01</span><span class="title">四个判断信号</span>
+        <span class="subtitle">先看四个信号，再看结论 · 红柱=正向</span>
       </div>
       <div class="signal-grid">${signalCards}</div>
 
