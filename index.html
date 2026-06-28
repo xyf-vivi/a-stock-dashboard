@@ -1867,7 +1867,7 @@ tbody tr:last-child td { border-bottom: none; }
       <!-- 宽基ETF -->
       <div class="module-title">
         <span class="num">01</span><span class="title">宽基ETF资金流</span>
-        <span class="subtitle">11个方向 · 方向覆盖率 100% · 有效样本率 51%</span>
+        <span class="subtitle">11个方向 · 资金流向观察 · 数据口径见数据质量中心</span>
       </div>
 
       <div class="grid grid-4">
@@ -2206,7 +2206,7 @@ tbody tr:last-child td { border-bottom: none; }
       
       <div class="module-title">
         <span class="num">04</span><span class="title">主题ETF</span>
-        <span class="subtitle">5大类 · 10个细分方向 · 数量覆盖100% · 规模覆盖100% · 0只份额待确认</span>
+        <span class="subtitle">5大类 · 10个细分方向 · 状态分组 · 数据口径见数据质量中心</span>
       </div>
       <div class="tbl-wrap">
         <div class="tbl-scroll">
@@ -5478,7 +5478,7 @@ function renderEtf(data, currentDt) {
       <!-- 宽基ETF -->
       <div class="module-title">
         <span class="num">01</span><span class="title">宽基ETF资金流</span>
-        <span class="subtitle">11个方向 · 方向覆盖率 ${entry.etfWide.directionCoverage != null ? (entry.etfWide.directionCoverage * 100).toFixed(0) + '%' : '--'} · 有效样本率 ${entry.etfWide.sampleCoverage != null ? (entry.etfWide.sampleCoverage * 100).toFixed(0) + '%' : '--'}</span>
+        <span class="subtitle">11个方向 · 资金流向观察 · 数据口径见数据质量中心</span>
       </div>
 
       <div class="grid grid-4">
@@ -5542,7 +5542,7 @@ function renderEtf(data, currentDt) {
       ${themeRows ? `
       <div class="module-title">
         <span class="num">04</span><span class="title">主题ETF</span>
-        <span class="subtitle">5大类 · 10个细分方向 · 数量覆盖${entry.etfTheme ? (entry.etfTheme.sampleCoverage * 100).toFixed(0) + '%' : '--'} · 规模覆盖${entry.etfTheme ? (entry.etfTheme.scaleWeightedCoverage * 100).toFixed(0) + '%' : '--'} · ${entry.etfTheme ? entry.etfTheme.totalPendingCount + '只份额待确认' : ''}</span>
+        <span class="subtitle">5大类 · 10个细分方向 · 状态分组 · 数据口径见数据质量中心</span>
       </div>
       <div class="tbl-wrap">
         <div class="tbl-scroll">
