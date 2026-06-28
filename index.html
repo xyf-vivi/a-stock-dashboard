@@ -962,16 +962,56 @@ tbody tr:last-child td { border-bottom: none; }
   flex-direction: column;
   gap: 8px;
 }
-.pro-flow-row, .pro-mainline-row {
+.pro-mainline-summary {
+  font-size: var(--fs-small);
+  color: var(--t2);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.pro-mainline-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pro-mainline-head, .pro-mainline-row {
+  display: grid;
+  grid-template-columns: 1.15fr .8fr .75fr 1fr;
+  gap: 8px;
+  align-items: center;
+  font-size: var(--fs-small);
+}
+.pro-mainline-head {
+  color: var(--t3);
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--border);
+  font-size: var(--fs-tiny);
+}
+.pro-mainline-head span {
+  color: var(--t3);
+  font-weight: 700;
+}
+.pro-flow-row {
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 8px;
   align-items: baseline;
   font-size: var(--fs-small);
 }
+.pro-mainline-row {
+  display: grid;
+  grid-template-columns: 1.15fr .8fr .75fr 1fr;
+  gap: 8px;
+  align-items: center;
+  font-size: var(--fs-small);
+}
 .pro-flow-row span, .pro-mainline-row span { color: var(--t1); font-weight: 650; }
-.pro-flow-row strong, .pro-mainline-row strong { font-weight: 800; }
-.pro-flow-row em, .pro-mainline-row em {
+.pro-mainline-row strong { font-weight: 800; color: var(--t1); }
+.pro-mainline-row em {
+  font-style: normal;
+  color: var(--t3);
+  font-size: var(--fs-tiny);
+}
+.pro-mainline-row small {
   font-style: normal;
   color: var(--t3);
   font-size: var(--fs-tiny);
@@ -1079,8 +1119,11 @@ tbody tr:last-child td { border-bottom: none; }
   .pro-headline { font-size: 18px; }
   .pro-fact-grid { grid-template-columns: 1fr; }
   .pro-signal-tape { grid-template-columns: 1fr; }
-  .pro-flow-row, .pro-mainline-row { grid-template-columns: 1fr auto; }
-  .pro-flow-row em, .pro-mainline-row em { grid-column: 1 / -1; }
+  .pro-flow-row { grid-template-columns: 1fr auto auto; }
+  .pro-mainline-row { grid-template-columns: 1fr 1fr; }
+  .pro-mainline-head { grid-template-columns: 1fr 1fr; }
+  .pro-flow-row em { grid-column: 1 / -1; }
+  .pro-mainline-row em, .pro-mainline-row small { grid-column: 1 / -1; }
 }
 </style>
 </head>
@@ -1181,8 +1224,17 @@ tbody tr:last-child td { border-bottom: none; }
         <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
           TOP100热度 = 该主题在成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
-        <div class="pro-mainline-list">
-          <div class="pro-empty">暂无通过验证的主线候选</div>
+        <div class="pro-mainline-summary">
+          当前没有通过验证的主线候选，先看热度最高的方向：半导体（29.0%）。这代表热度，不代表结论。
+        </div>
+        <div class="pro-mainline-table">
+          <div class="pro-mainline-head">
+            <span>主线候选</span>
+            <span>结论</span>
+            <span>热度</span>
+            <span>证据</span>
+          </div>
+          <div class="pro-mainline-row"><span>半导体</span><strong>热度观察</strong><em>29.0%</em><small>未通过验证</small></div><div class="pro-mainline-row"><span>通信</span><strong>热度观察</strong><em>23.0%</em><small>未通过验证</small></div><div class="pro-mainline-row"><span>AI</span><strong>热度观察</strong><em>18.7%</em><small>未通过验证</small></div><div class="pro-mainline-row"><span>有色金属</span><strong>热度观察</strong><em>7.7%</em><small>未通过验证</small></div>
         </div>
         <div class="pro-heat-tags">
           <span>半导体 热度 29.0%</span><span>通信 热度 23.0%</span><span>AI 热度 18.7%</span><span>有色金属 热度 7.7%</span>
@@ -4710,8 +4762,25 @@ function renderProfessionalReview(data, currentDt, phase) {
         <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
           TOP100热度 = 该主题在成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
-        <div class="pro-mainline-list">
-          ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status}</strong><em>信号 ${m.signalAgreement || '--'} · 热度 ${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
+        <div class="pro-mainline-summary">
+          ${mainPositive.length > 0
+            ? `当前有 ${mainPositive.length} 个通过验证的主线候选，下面按候选、结论、热度、证据展开。`
+            : (heatLeaders[0]
+              ? `当前没有通过验证的主线候选，先看热度最高的方向：${heatLeaders[0].themeName || heatLeaders[0].theme || '--'}（${(heatLeaders[0].heatShare * 100).toFixed(1)}%）。这代表热度，不代表结论。`
+              : '当前没有足够数据形成主线候选。')}
+        </div>
+        <div class="pro-mainline-table">
+          <div class="pro-mainline-head">
+            <span>主线候选</span>
+            <span>结论</span>
+            <span>热度</span>
+            <span>证据</span>
+          </div>
+          ${(mainPositive.length > 0 ? mainPositive : heatLeaders.slice(0, 4).map(m => ({
+            ...m,
+            status: '热度观察',
+            signalAgreement: '未通过验证'
+          }))).map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status || '--'}</strong><em>${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em><small>${m.signalAgreement || '--'}</small></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
         </div>
         <div class="pro-heat-tags">
           ${heatLeaders.map(m => `<span>${m.themeName || m.theme || '--'} 热度 ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
