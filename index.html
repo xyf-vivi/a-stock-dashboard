@@ -1130,9 +1130,9 @@ tbody tr:last-child td { border-bottom: none; }
         <div class="pro-eyebrow">专业复盘摘要</div>
         <div class="pro-headline">成交额3.6万亿，缩量436亿，连续9日破3万亿，790涨/4,676跌</div>
         <div class="pro-narrative">
-          <div><strong>市场定性：</strong>今天是高成交、弱宽度的结构行情：成交不低，但790只上涨，4,676只下跌，上涨占比14.3%，说明指数和少数方向不能代表全市场体感。</div>
-          <div><strong>资金穿透：</strong>宽基ETF近5日累计-959亿，主题ETF近5日累计+101亿，当日最强流入是通信（+60.4亿）。这决定了今天更像资金在选择方向，而不是无差别扩散。</div>
-          <div><strong>明日验证：</strong>下一交易日优先验证半导体：TOP100热度能否维持在29.0%附近，主题ETF是否继续净流入，同时市场宽度不能继续恶化。</div>
+          <div><strong>市场定性：</strong>今天是高成交、弱宽度的结构行情：成交不低，但<span class="up">790</span>涨/<span class="up">4,676</span>跌，说明指数和少数方向不能代表全市场体感。</div>
+          <div><strong>资金穿透：</strong>宽基ETF近5日累计<span class="dn">-959</span>亿，主题ETF近5日累计<span class="up">+101</span>亿，当日最强流入是通信（<span class="up">+60.4</span>亿）。这决定了今天更像资金在选择方向，而不是无差别扩散。</div>
+          <div><strong>明日验证：</strong>下一交易日优先验证半导体：TOP100热度能否维持在<span class="up">29.0%</span>附近，主题ETF是否继续净流入，同时市场宽度不能继续恶化。</div>
         </div>
       </div>
       <div class="pro-phase watch">温和观望</div>
@@ -1162,7 +1162,7 @@ tbody tr:last-child td { border-bottom: none; }
     </div>
 
     <div class="pro-signal-tape">
-      <div class="pro-signal-chip strong"><span>成交连续性</span><strong>连续9日破3万亿</strong><em>当日3.6万亿</em></div><div class="pro-signal-chip risk"><span>宽度连续性</span><strong>连续3日弱宽度</strong><em>上涨占比14.3%</em></div><div class="pro-signal-chip risk"><span>宽基ETF</span><strong>5日-959亿</strong><em>10日-1108亿</em></div><div class="pro-signal-chip strong"><span>主题ETF</span><strong>5日+101亿</strong><em>10日+71.5亿</em></div><div class="pro-signal-chip strong"><span>融资节奏</span><strong>5日+578亿</strong><em>10日+1490亿</em></div>
+      <div class="pro-signal-chip strong"><span>成交连续性</span><strong>连续9日破3万亿</strong><em>当日3.6万亿</em></div><div class="pro-signal-chip risk"><span>宽度连续性</span><strong>连续3日弱宽度</strong><em>上涨占比<span class="up">14.3%</span></em></div><div class="pro-signal-chip risk"><span>宽基ETF</span><strong>5日<span class="dn">-959</span>亿</strong><em>10日<span class="dn">-1108</span>亿</em></div><div class="pro-signal-chip strong"><span>主题ETF</span><strong>5日<span class="up">+101</span>亿</strong><em>10日<span class="up">+71.5</span>亿</em></div><div class="pro-signal-chip strong"><span>融资节奏</span><strong>5日<span class="up">+578</span>亿</strong><em>10日<span class="up">+1490</span>亿</em></div>
     </div>
 
     <div class="pro-columns">
@@ -4316,6 +4316,10 @@ function upDn(v) {
   return v > 0 ? 'up' : (v < 0 ? 'dn' : '');
 }
 
+function colorNum(v, text) {
+  return `<span class="${upDn(v)}">${text}</span>`;
+}
+
 function statusTag(status) {
   return `<span class="dstatus ${status}">${STATUS_LABEL[status] || status}</span>`;
 }
@@ -4612,21 +4616,21 @@ function renderProfessionalReview(data, currentDt, phase) {
 
   const professionalNarrative = {
     market: (() => {
-      if (breadthCacheSuspicious) return `今天先定性为${marketType}，但上涨/下跌家数连续多日完全相同，宽度数据疑似缓存，宽度证据需要降权。`;
-      if (breadthTone === 'negative') return `今天是${marketType}：成交不低，但${breadthText}，说明指数和少数方向不能代表全市场体感。`;
+      if (breadthCacheSuspicious) return `今天先定性为${marketType}，但${colorNum(upCount, formatCount(upCount))}涨/${colorNum(downCount, formatCount(downCount))}跌连续多日完全相同，宽度数据疑似缓存，宽度证据需要降权。`;
+      if (breadthTone === 'negative') return `今天是${marketType}：成交不低，但${colorNum(upCount, formatCount(upCount))}涨/${colorNum(downCount, formatCount(downCount))}跌，说明指数和少数方向不能代表全市场体感。`;
       if (breadthTone === 'positive') return `今天是${marketType}：宽度改善，资金扩散质量优于单纯指数上涨。`;
       return `今天是${marketType}：方向判断主要依赖成交额、ETF资金和TOP100成交热度。`;
     })(),
     flow: (() => {
-      const wideText = wide5.sum != null ? `宽基ETF近${wide5.days}日累计${fmtFlow(wide5.sum)}亿` : '宽基ETF近5日数据不足';
-      const themeText = theme5.sum != null ? `主题ETF近${theme5.days}日累计${fmtFlow(theme5.sum)}亿` : '主题ETF近5日数据不足';
-      const leadText = leadTheme ? `当日最强流入是${leadTheme.theme}（${fmtFlow(leadTheme.flow)}亿）` : '当日暂无明确主题流入方向';
+      const wideText = wide5.sum != null ? `宽基ETF近${wide5.days}日累计${colorNum(wide5.sum, fmtFlow(wide5.sum))}亿` : '宽基ETF近5日数据不足';
+      const themeText = theme5.sum != null ? `主题ETF近${theme5.days}日累计${colorNum(theme5.sum, fmtFlow(theme5.sum))}亿` : '主题ETF近5日数据不足';
+      const leadText = leadTheme ? `当日最强流入是${leadTheme.theme}（${colorNum(leadTheme.flow, fmtFlow(leadTheme.flow))}亿）` : '当日暂无明确主题流入方向';
       return `${wideText}，${themeText}，${leadText}。这决定了今天更像资金在选择方向，而不是无差别扩散。`;
     })(),
     verify: (() => {
       const leader = heatLeaders[0];
       if (leader && leader.heatShare != null) {
-        return `下一交易日优先验证${leader.themeName}：TOP100热度能否维持在${(leader.heatShare * 100).toFixed(1)}%附近，主题ETF是否继续净流入，同时市场宽度不能继续恶化。`;
+        return `下一交易日优先验证${leader.themeName}：TOP100热度能否维持在${colorNum(leader.heatShare, (leader.heatShare * 100).toFixed(1) + '%')}附近，主题ETF是否继续净流入，同时市场宽度不能继续恶化。`;
       }
       return '下一交易日优先验证：主题ETF是否延续流入、宽基ETF是否止流出、市场宽度是否修复。';
     })()
@@ -4638,10 +4642,10 @@ function renderProfessionalReview(data, currentDt, phase) {
 
   const signalChips = [];
   signalChips.push(renderSignalChip('成交连续性', highTurnoverStreak >= 2 ? `连续${highTurnoverStreak}日破3万亿` : '未连续破3万亿', highTurnoverStreak >= 2 ? 'strong' : 'neutral', total != null ? `当日${fmt(total)}亿` : ''));
-  signalChips.push(renderSignalChip('宽度连续性', weakBreadthStreak >= 2 ? `连续${weakBreadthStreak}日弱宽度` : '未连续弱宽度', weakBreadthStreak >= 2 ? 'risk' : 'neutral', upRatio != null ? `上涨占比${(upRatio * 100).toFixed(1)}%` : ''));
-  signalChips.push(renderSignalChip('宽基ETF', wide5.sum != null ? `5日${fmtFlow(wide5.sum)}亿` : '--', wide5.sum != null && wide5.sum < 0 ? 'risk' : (wide5.sum != null && wide5.sum > 0 ? 'strong' : 'neutral'), wide10.sum != null ? `10日${fmtFlow(wide10.sum)}亿` : ''));
-  signalChips.push(renderSignalChip('主题ETF', theme5.sum != null ? `5日${fmtFlow(theme5.sum)}亿` : '--', theme5.sum != null && theme5.sum > 0 ? 'strong' : (theme5.sum != null && theme5.sum < 0 ? 'risk' : 'neutral'), theme10.sum != null ? `10日${fmtFlow(theme10.sum)}亿` : ''));
-  signalChips.push(renderSignalChip('融资节奏', marginJumpSuspicious ? '口径跳变待核验' : (margin5Yi != null ? `5日${fmtFlow(margin5Yi)}亿` : '--'), marginJumpSuspicious ? 'risk' : (margin5Yi != null && margin5Yi > 0 ? 'strong' : (margin5Yi != null && margin5Yi < 0 ? 'risk' : 'neutral')), marginJumpSuspicious ? '融资余额序列异常' : (margin10Yi != null ? `10日${fmtFlow(margin10Yi)}亿` : '')));
+  signalChips.push(renderSignalChip('宽度连续性', weakBreadthStreak >= 2 ? `连续${weakBreadthStreak}日弱宽度` : '未连续弱宽度', weakBreadthStreak >= 2 ? 'risk' : 'neutral', upRatio != null ? `上涨占比${colorNum(upRatio, (upRatio * 100).toFixed(1) + '%')}` : ''));
+  signalChips.push(renderSignalChip('宽基ETF', wide5.sum != null ? `5日${colorNum(wide5.sum, fmtFlow(wide5.sum))}亿` : '--', wide5.sum != null && wide5.sum < 0 ? 'risk' : (wide5.sum != null && wide5.sum > 0 ? 'strong' : 'neutral'), wide10.sum != null ? `10日${colorNum(wide10.sum, fmtFlow(wide10.sum))}亿` : ''));
+  signalChips.push(renderSignalChip('主题ETF', theme5.sum != null ? `5日${colorNum(theme5.sum, fmtFlow(theme5.sum))}亿` : '--', theme5.sum != null && theme5.sum > 0 ? 'strong' : (theme5.sum != null && theme5.sum < 0 ? 'risk' : 'neutral'), theme10.sum != null ? `10日${colorNum(theme10.sum, fmtFlow(theme10.sum))}亿` : ''));
+  signalChips.push(renderSignalChip('融资节奏', marginJumpSuspicious ? '口径跳变待核验' : (margin5Yi != null ? `5日${colorNum(margin5Yi, fmtFlow(margin5Yi))}亿` : '--'), marginJumpSuspicious ? 'risk' : (margin5Yi != null && margin5Yi > 0 ? 'strong' : (margin5Yi != null && margin5Yi < 0 ? 'risk' : 'neutral')), marginJumpSuspicious ? '融资余额序列异常' : (margin10Yi != null ? `10日${colorNum(margin10Yi, fmtFlow(margin10Yi))}亿` : '')));
   if (breadthCacheSuspicious) signalChips.push(renderSignalChip('数据异常', '宽度疑似缓存', 'risk', '连续3日涨跌家数相同'));
   if (marginJumpSuspicious) signalChips.push(renderSignalChip('数据异常', '融资口径疑似跳变', 'risk', '连续变化不用于判断'));
 
