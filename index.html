@@ -1240,10 +1240,10 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
         <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
-          TOP100热度 = 该主题在成交额前100只股票中的占比，数值越高，说明资金越集中。
+          TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
         <div class="pro-mainline-summary">
-          当前没有通过验证的主线候选，先看热度最高的方向：半导体（29.0%）。这代表热度，不代表结论。
+          当前暂无主线确认，先看热度最高的方向：半导体（29.0%）。
         </div>
         <div class="pro-mainline-table">
           <div class="pro-mainline-head">
@@ -4772,13 +4772,13 @@ function renderProfessionalReview(data, currentDt, phase) {
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
         <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
-          TOP100热度 = 该主题在成交额前100只股票中的占比，数值越高，说明资金越集中。
+          TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
         <div class="pro-mainline-summary">
           ${mainPositive.length > 0
-            ? `当前有 ${mainPositive.length} 个通过验证的主线候选，下面按候选、结论、热度、证据展开。`
+            ? `当前有 ${mainPositive.length} 个通过验证的主线候选。`
             : (heatLeaders[0]
-              ? `当前没有通过验证的主线候选，先看热度最高的方向：${heatLeaders[0].themeName || heatLeaders[0].theme || '--'}（${(heatLeaders[0].heatShare * 100).toFixed(1)}%）。这代表热度，不代表结论。`
+              ? `当前暂无主线确认，先看热度最高的方向：${heatLeaders[0].themeName || heatLeaders[0].theme || '--'}（${(heatLeaders[0].heatShare * 100).toFixed(1)}%）。`
               : '当前没有足够数据形成主线候选。')}
         </div>
         <div class="pro-mainline-table">
