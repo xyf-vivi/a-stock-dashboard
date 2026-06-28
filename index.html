@@ -1047,12 +1047,13 @@ tbody tr:last-child td { border-bottom: none; }
 .pro-signal-chip.strong { border-color: rgba(23,196,154,.42); }
 .pro-signal-chip.risk { border-color: rgba(245,85,107,.42); }
 .pro-signal-chip.neutral { border-color: var(--border); }
-.pro-signal-chip span {
+.pro-signal-chip > span {
   display: block;
   font-size: var(--fs-tiny);
   color: var(--t3);
   margin-bottom: 4px;
 }
+.pro-signal-chip strong span { display: inline; }
 .pro-signal-chip strong {
   display: block;
   font-size: var(--fs-small);
