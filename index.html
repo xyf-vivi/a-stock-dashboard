@@ -360,6 +360,12 @@ body {
   flex-direction: column;
   gap: var(--sp-3);
 }
+.verdict-strap {
+  font-size: var(--fs-tiny);
+  color: var(--t3);
+  padding-bottom: var(--sp-1);
+  border-bottom: 1px dashed var(--border);
+}
 .verdict-phase {
   display: flex;
   align-items: center;
@@ -392,6 +398,11 @@ body {
   color: var(--t1);
   line-height: 1.6;
 }
+.verdict-section-title {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--t2);
+}
 .verdict-evidence {
   display: flex;
   gap: var(--sp-2);
@@ -418,6 +429,11 @@ body {
   background: var(--bg-card2);
   border-radius: var(--radius-sm);
   border-left: 3px solid var(--c-brand);
+}
+.verdict-hint {
+  font-size: var(--fs-tiny);
+  color: var(--t3);
+  padding-left: 2px;
 }
 
 /* === KPI 卡（资金脉搏） === */
@@ -1335,25 +1351,28 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="module-title">
         <span class="num">02</span>
         <span class="title">核心判断</span>
-        <span class="subtitle">综合四信号体系</span>
+        <span class="subtitle">先看结论，再看依据和验证</span>
       </div>
       
   <div class="verdict-card">
+    <div class="verdict-strap">这块先回答一个问题：今天市场更像增量共振、抱团、扩散还是降温。</div>
     <div class="verdict-phase">
-      <span class="verdict-phase-tag watch">温和观望</span>
-      <span class="verdict-confidence low">置信度: 低</span>
+      <span class="verdict-phase-tag watch">当前结论：温和观望</span>
+      <span class="verdict-confidence medium">一致度: 信号基本一致</span>
     </div>
     <div class="verdict-sentence">多空信号交织，缺乏一致性方向</div>
+    <div class="verdict-section-title">为什么这么判</div>
     <div class="verdict-evidence">
       <div class="evidence-pill positive"><span class="evi-icon">✓</span>流动性扩张</div><div class="evidence-pill positive"><span class="evi-icon">✓</span>宽度收窄</div><div class="evidence-pill positive"><span class="evi-icon">✓</span>资金流出</div><div class="evidence-pill positive"><span class="evi-icon">✓</span>结构拥挤</div>
       
     </div>
-    <div class="verdict-validate">📋 <strong>下一交易日验证：</strong>等待信号一致性提升</div>
+    <div class="verdict-validate">📋 <strong>下一步看什么：</strong>等待信号一致性提升</div>
     <div class="consistency-bar">
       <span class="consistency-label">信号基本一致</span>
       <div class="consistency-track"><div class="consistency-fill medium" style="width:50%"></div></div>
       <span class="consistency-value">50%</span>
     </div>
+    <div class="verdict-hint">四个信号分别看成交、宽度、ETF支撑和结构。</div>
     <div class="signal-grid">
     <div class="signal-card">
       <div class="signal-card-header">
@@ -4832,7 +4851,7 @@ function renderReview(data, currentDt) {
       <div class="module-title">
         <span class="num">02</span>
         <span class="title">核心判断</span>
-        <span class="subtitle">综合四信号体系</span>
+        <span class="subtitle">先看结论，再看依据和验证</span>
       </div>
       ${renderVerdict(phase, consistency, signals)}
 
@@ -4948,21 +4967,24 @@ function renderVerdict(phase, consistency, signals) {
 
   return `
   <div class="verdict-card">
+    <div class="verdict-strap">这块先回答一个问题：今天市场更像增量共振、抱团、扩散还是降温。</div>
     <div class="verdict-phase">
-      <span class="verdict-phase-tag ${phase.phase}">${phase.label}</span>
-      <span class="verdict-confidence ${phase.confidence}">置信度: ${phase.confidence === 'high' ? '高' : (phase.confidence === 'medium' ? '中' : '低')}</span>
+      <span class="verdict-phase-tag ${phase.phase}">当前结论：${phase.label}</span>
+      <span class="verdict-confidence ${consistency.level}">一致度: ${consistency.label}</span>
     </div>
     <div class="verdict-sentence">${phase.description}</div>
+    <div class="verdict-section-title">为什么这么判</div>
     <div class="verdict-evidence">
       ${evidencePills}
       ${counterPill}
     </div>
-    <div class="verdict-validate">📋 <strong>下一交易日验证：</strong>${phase.validateNext}</div>
+    <div class="verdict-validate">📋 <strong>下一步看什么：</strong>${phase.validateNext}</div>
     <div class="consistency-bar">
       <span class="consistency-label">${consistency.label}</span>
       <div class="consistency-track"><div class="consistency-fill ${consistency.level}" style="width:${consistency.score * 100}%"></div></div>
       <span class="consistency-value">${(consistency.score * 100).toFixed(0)}%</span>
     </div>
+    <div class="verdict-hint">四个信号分别看成交、宽度、ETF支撑和结构。</div>
     <div class="signal-grid">${signalBars}</div>
   </div>
   `;
