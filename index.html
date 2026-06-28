@@ -1178,11 +1178,14 @@ tbody tr:last-child td { border-bottom: none; }
       </div>
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
+        <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
+          TOP100热度 = 该主题在成交额前100只股票中的占比，数值越高，说明资金越集中。
+        </div>
         <div class="pro-mainline-list">
           <div class="pro-empty">暂无通过验证的主线候选</div>
         </div>
         <div class="pro-heat-tags">
-          <span>半导体 29.0%</span><span>通信 23.0%</span><span>AI 18.7%</span><span>有色金属 7.7%</span>
+          <span>半导体 热度 29.0%</span><span>通信 热度 23.0%</span><span>AI 热度 18.7%</span><span>有色金属 热度 7.7%</span>
         </div>
       </div>
       <div class="pro-panel">
@@ -4704,11 +4707,14 @@ function renderProfessionalReview(data, currentDt, phase) {
       </div>
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
+        <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
+          TOP100热度 = 该主题在成交额前100只股票中的占比，数值越高，说明资金越集中。
+        </div>
         <div class="pro-mainline-list">
-          ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status}</strong><em>${m.signalAgreement || '--'} · TOP100${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
+          ${mainPositive.map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status}</strong><em>信号 ${m.signalAgreement || '--'} · 热度 ${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
         </div>
         <div class="pro-heat-tags">
-          ${heatLeaders.map(m => `<span>${m.themeName || m.theme || '--'} ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
+          ${heatLeaders.map(m => `<span>${m.themeName || m.theme || '--'} 热度 ${(m.heatShare * 100).toFixed(1)}%</span>`).join('')}
         </div>
       </div>
       <div class="pro-panel">
