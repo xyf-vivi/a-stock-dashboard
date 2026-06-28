@@ -213,6 +213,22 @@ body {
   background: var(--tag-neutral-bg); color: var(--c-neutral);
 }
 
+.data-health-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--t2);
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+}
+.data-health-pill.confirmed { color: var(--c-confirm); background: var(--tag-confirm-bg); }
+.data-health-pill.partial { color: var(--c-warn); background: var(--tag-warn-bg); }
+
 /* 数据元信息行 */
 .meta-row {
   display: flex;
@@ -1137,7 +1153,9 @@ tbody tr:last-child td { border-bottom: none; }
     <div class="topbar-meta">
       <select class="tb-select" id="dateSelect" onchange="switchDate(this.value)"><option value="2026-06-26" selected>06/26 [集中度/ETF] 盘后确认</option><option value="2026-06-25" >06/25 [集中度/ETF] 盘后确认</option><option value="2026-06-24" >06/24 [集中度/ETF] 盘后确认</option><option value="2026-06-23" >06/23 [集中度/ETF] 盘后确认</option><option value="2026-06-22" >06/22 [集中度/ETF] 盘后确认</option><option value="2026-06-18" >06/18 [集中度/ETF] 盘后确认</option><option value="2026-06-17" >06/17 [集中度/ETF] 盘后确认</option><option value="2026-06-16" >06/16 [集中度/ETF] 盘后确认</option><option value="2026-06-15" >06/15 [集中度/ETF] 盘后确认</option><option value="2026-06-12" >06/12 [ETF] 盘后初版</option><option value="2026-06-11" >06/11 [ETF] 盘后初版</option><option value="2026-06-10" >06/10 [集中度/ETF] 盘后确认</option><option value="2026-06-09" >06/09 [集中度/ETF] 盘后确认</option><option value="2026-06-08" >06/08 [集中度/ETF] 盘后确认</option><option value="2026-06-05" >06/05 [ETF] 盘后初版</option><option value="2026-06-04" >06/04 [集中度/ETF] 盘后确认</option><option value="2026-06-03" >06/03 [集中度/ETF] 盘后确认</option><option value="2026-06-02" >06/02 [集中度/ETF] 盘后确认</option><option value="2026-06-01" >06/01 [集中度/ETF] 盘后确认</option><option value="2026-05-29" >05/29 [集中度/ETF] 盘后确认</option><option value="2026-05-28" >05/28 [集中度/ETF] 盘后确认</option><option value="2026-05-27" >05/27 [集中度/ETF] 盘后确认</option><option value="2026-05-26" >05/26 [集中度/ETF] 盘后确认</option><option value="2026-05-25" >05/25 [集中度/ETF] 盘后确认</option><option value="2026-05-22" >05/22 [集中度/ETF] 盘后确认</option><option value="2026-05-21" >05/21 [集中度/ETF] 盘后确认</option><option value="2026-05-20" >05/20 [集中度/ETF] 盘后确认</option><option value="2026-05-19" >05/19 [集中度/ETF] 盘后确认</option><option value="2026-05-18" >05/18 [集中度/ETF] 盘后确认</option><option value="2026-05-15" >05/15 [集中度/ETF] 盘后确认</option><option value="2026-05-14" >05/14 [集中度/ETF] 盘后确认</option><option value="2026-05-13" >05/13 [集中度/ETF] 盘后确认</option><option value="2026-05-12" >05/12 [集中度/ETF] 盘后确认</option><option value="2026-05-11" >05/11 [集中度/ETF] 盘后确认</option><option value="2026-05-08" >05/08 [集中度/ETF] 盘后确认</option><option value="2026-05-07" >05/07 [集中度/ETF] 盘后确认</option><option value="2026-05-06" >05/06 [集中度/ETF] 盘后确认</option><option value="2026-04-30" >04/30 [集中度] 盘后初版</option><option value="2026-04-29" >04/29 [集中度] 盘后初版</option><option value="2026-04-28" >04/28 [集中度] 盘后初版</option><option value="2026-04-27" >04/27 [集中度] 盘后初版</option><option value="2026-04-24" >04/24 [集中度] 盘后初版</option><option value="2026-04-23" >04/23 [集中度] 盘后初版</option><option value="2026-04-22" >04/22 [集中度] 盘后初版</option><option value="2026-04-21" >04/21 [集中度] 盘后初版</option><option value="2026-04-20" >04/20 [集中度] 盘后初版</option><option value="2026-04-17" >04/17 [集中度] 盘后初版</option><option value="2026-04-16" >04/16 [集中度] 盘后初版</option><option value="2026-04-15" >04/15 [集中度] 盘后初版</option><option value="2026-04-14" >04/14 [集中度] 盘后初版</option><option value="2026-04-13" >04/13 [集中度] 盘后初版</option><option value="2026-04-10" >04/10 [集中度] 盘后初版</option><option value="2026-04-09" >04/09 [集中度] 盘后初版</option><option value="2026-04-08" >04/08 [集中度] 盘后初版</option><option value="2026-04-07" >04/07 [集中度] 盘后初版</option><option value="2026-04-03" >04/03 [集中度] 盘后初版</option><option value="2026-04-02" >04/02 [集中度] 盘后初版</option><option value="2026-04-01" >04/01 [集中度] 盘后初版</option><option value="2026-03-31" >03/31 [集中度] 盘后初版</option><option value="2026-03-30" >03/30 [集中度] 盘后初版</option><option value="2026-03-27" >03/27 [集中度] 盘后初版</option><option value="2026-03-26" >03/26 [集中度] 盘后初版</option><option value="2026-03-25" >03/25 [集中度] 盘后初版</option><option value="2026-03-24" >03/24 [集中度] 盘后初版</option><option value="2026-03-23" >03/23 [集中度] 盘后初版</option><option value="2026-03-20" >03/20 [集中度] 盘后初版</option><option value="2026-03-19" >03/19 [集中度] 盘后初版</option><option value="2026-03-18" >03/18 [集中度] 盘后初版</option><option value="2026-03-17" >03/17 [集中度] 盘后初版</option><option value="2026-03-16" >03/16 [集中度] 盘后初版</option><option value="2026-03-13" >03/13 [集中度] 盘后初版</option><option value="2026-03-12" >03/12 [集中度] 盘后初版</option><option value="2026-03-11" >03/11 [集中度] 盘后初版</option><option value="2026-03-10" >03/10 [集中度] 盘后初版</option><option value="2026-03-09" >03/09 [集中度] 盘后初版</option><option value="2026-03-06" >03/06 [集中度] 盘后初版</option><option value="2026-03-05" >03/05 [集中度] 盘后初版</option><option value="2026-03-04" >03/04 [集中度] 盘后初版</option><option value="2026-03-03" >03/03 [集中度] 盘后初版</option><option value="2026-03-02" >03/02 [集中度] 盘后初版</option></select>
       <span class="phase-pill confirmed">盘后确认</span>
-      <span style="font-size:var(--fs-tiny);color:var(--t3)">完整度 <span id="metaCompleteness">100</span>%</span>
+      <span class="data-health-pill confirmed">
+        数据健康 <span id="metaCompleteness">100</span>%
+      </span>
     </div>
     <div class="topbar-actions">
       <button class="tb-btn" id="themeToggle" title="切换深色/浅色">
@@ -4435,7 +4453,9 @@ function renderTopbar(data, currentDt) {
     <div class="topbar-meta">
       <select class="tb-select" id="dateSelect" onchange="switchDate(this.value)">${dateOpts}</select>
       <span class="phase-pill ${meta.phase}">${phaseLabels[meta.phase] || meta.phase}</span>
-      <span style="font-size:var(--fs-tiny);color:var(--t3)">完整度 <span id="metaCompleteness">${(meta.completeness * 100).toFixed(0)}</span>%</span>
+      <span class="data-health-pill ${meta.completeness >= 1 ? 'confirmed' : 'partial'}">
+        数据健康 <span id="metaCompleteness">${(meta.completeness * 100).toFixed(0)}</span>%
+      </span>
     </div>
     <div class="topbar-actions">
       <button class="tb-btn" id="themeToggle" title="切换深色/浅色">
@@ -5930,8 +5950,8 @@ Object.assign(DMod, {
     setText('.phase-pill', phaseLabels[meta.phase] || meta.phase);
     setClass('.phase-pill', 'phase-pill ' + meta.phase);
 
-    var compEl = document.querySelector('.topbar-meta span:nth-child(3)');
-    if (compEl) compEl.textContent = '完整度 ' + (meta.completeness*100).toFixed(0) + '%';
+    var compEl = document.getElementById('metaCompleteness');
+    if (compEl) compEl.textContent = (meta.completeness*100).toFixed(0);
 
     // 市场宽度日期：entry.market.breadthSource === 'wind' 时有真实数据
     var hasBreadth = entry.market && entry.market.breadthSource === 'wind';
