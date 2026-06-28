@@ -1313,11 +1313,6 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="kpi-value">3<span class="unit">万亿</span></div>
       <div class="kpi-benchmark">较前日 -0.26% </div>
     </div>
-    <div class="kpi-card">
-      <div class="kpi-label">数据完整度</div>
-      <div class="kpi-value">100<span class="unit">%</span></div>
-      <div class="kpi-benchmark"><span class="dstatus confirmed">已确认</span></div>
-    </div>
   </div>
   
 
@@ -4904,11 +4899,6 @@ function renderMarketOverview(entry) {
       <div class="kpi-label">融资余额</div>
       <div class="kpi-value">${entry.margin.value != null ? entry.margin.value.toFixed(0) : '--'}<span class="unit">万亿</span></div>
       <div class="kpi-benchmark">${entry.margin.chg != null ? '较前日 ' + fmtPct(entry.margin.chg) : '--'} ${entry.margin.isStale ? '(T+1)' : ''}</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">数据完整度</div>
-      <div class="kpi-value">${(entry.meta.completeness * 100).toFixed(0)}<span class="unit">%</span></div>
-      <div class="kpi-benchmark">${statusTag(entry.meta.phase)}</div>
     </div>
   </div>
   `;
