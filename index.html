@@ -1478,24 +1478,24 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
   <div class="grid grid-6" style="margin-top:var(--sp-1)">
       <div class="kpi-card" data-jump="etf">
-      <div class="kpi-layer-tag">L3 重点看什么</div>
+      <div class="kpi-layer-tag">L3 钱流向哪里</div>
         <div class="kpi-label">通信 <span class="dstatus confirmed">已确认</span></div>
-        <div class="kpi-value up">--</div>
-        <div class="kpi-benchmark">覆盖率 100% · 规模 797亿</div>
+        <div class="kpi-value up">+60.4亿</div>
+        <div class="kpi-benchmark">5日 +74.0亿 · 覆盖率 100%</div>
         <div class="kpi-date">06/26</div>
       </div>
       <div class="kpi-card" data-jump="etf">
-      <div class="kpi-layer-tag">L3 重点看什么</div>
+      <div class="kpi-layer-tag">L3 钱流向哪里</div>
         <div class="kpi-label">半导体 <span class="dstatus confirmed">已确认</span></div>
-        <div class="kpi-value up">--</div>
-        <div class="kpi-benchmark">覆盖率 100% · 规模 1155亿</div>
+        <div class="kpi-value up">+28.4亿</div>
+        <div class="kpi-benchmark">5日 +68.6亿 · 覆盖率 100%</div>
         <div class="kpi-date">06/26</div>
       </div>
       <div class="kpi-card" data-jump="etf">
-      <div class="kpi-layer-tag">L3 重点看什么</div>
+      <div class="kpi-layer-tag">L3 钱流向哪里</div>
         <div class="kpi-label">黄金 <span class="dstatus confirmed">已确认</span></div>
-        <div class="kpi-value dn">--</div>
-        <div class="kpi-benchmark">覆盖率 100% · 规模 1211亿</div>
+        <div class="kpi-value dn">-11.3亿</div>
+        <div class="kpi-benchmark">5日 -47.6亿 · 覆盖率 100%</div>
         <div class="kpi-date">06/26</div>
       </div></div>
   
@@ -5076,10 +5076,10 @@ function renderPulse(entry) {
       const status = entry.computed.themeStatus[t.theme] || {};
       return `
       <div class="kpi-card" data-jump="etf">
-      <div class="kpi-layer-tag">L3 重点看什么</div>
+      <div class="kpi-layer-tag">L3 钱流向哪里</div>
         <div class="kpi-label">${t.theme} ${statusTag(t.status || DATA_STATUS.CONFIRMED)}</div>
-        <div class="kpi-value ${upDn(t.flow)}">${t.statusLabel || '--'}</div>
-        <div class="kpi-benchmark">覆盖率 ${t.coverage != null ? (t.coverage*100).toFixed(0) + '%' : '--'} · 规模 ${t.fundSize != null ? fmt(t.fundSize) + '亿' : '--'}</div>
+        <div class="kpi-value ${upDn(t.flow)}">${t.flow != null ? fmtFlow(t.flow) + '亿' : '--'}</div>
+        <div class="kpi-benchmark">5日 ${t.flow5d != null ? fmtFlow(t.flow5d) + '亿' : '--'} · 覆盖率 ${t.coverage != null ? (t.coverage*100).toFixed(0) + '%' : '--'}</div>
         <div class="kpi-date">${entry.label}</div>
       </div>`;
     }).join('');
@@ -5093,9 +5093,9 @@ function renderPulse(entry) {
       const w = wideItems[idx];
       layer3Cards += `
       <div class="kpi-card" data-jump="etf">
-      <div class="kpi-layer-tag">L3 重点看什么</div>
+      <div class="kpi-layer-tag">L3 钱流向哪里</div>
         <div class="kpi-label">${w.name}</div>
-        <div class="kpi-value ${upDn(w.flow)}">关注中</div>
+        <div class="kpi-value ${upDn(w.flow)}">${w.flow != null ? fmtFlow(w.flow) + '亿' : '--'}</div>
         <div class="kpi-benchmark">涨跌 ${fmtPct(w.chg)} · 规模 ${w.fundSize != null ? fmt(w.fundSize) + '亿' : '--'}</div>
         <div class="kpi-date">${entry.label}</div>
       </div>`;
