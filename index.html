@@ -7016,11 +7016,6 @@ Object.assign(DMod, {
     return Number(v) >= 0 ? 'up' : 'down';
   }
 
-  function pickText(selector, fallback) {
-    var el = document.querySelector(selector);
-    return el ? el.textContent.trim().replace(/s+/g, ' ') : fallback;
-  }
-
   function getThemeRows(entry) {
     var status = entry && entry.computed ? (entry.computed.themeStatus || {}) : {};
     var rows = Object.keys(status).map(function(name) {
@@ -7045,6 +7040,75 @@ Object.assign(DMod, {
       '</div>';
   }
 
+  function describeAmount(totalAmount, amountVs5d) {
+    if (totalAmount == null || !isFinite(totalAmount)) return '成交额待确认';
+    var amountText = (totalAmount / 10000).toFixed(1) + '万亿';
+    var vsText = amountVs5d == null || !isFinite(amountVs5d)
+      ? '较5日均值待确认'
+      : (amountVs5d >= 0 ? '较5日均值放大' : '较5日均值缩小') + Math.abs(amountVs5d).toFixed(1) + '%';
+    return '成交额' + amountText + '，' + vsText;
+  }
+
+  function describeBreadth(market) {
+    if (!market) return '市场宽度待确认';
+    if (market.upCount != null && market.downCount != null) {
+      var total = (market.upCount || 0) + (market.downCount || 0) + (market.flatCount || 0);
+      var ratio = total > 0 ? (market.upCount / total * 100).toFixed(1) + '%' : '--';
+      return market.upCount + '家上涨 / ' + market.downCount + '家下跌，上涨占比' + ratio;
+    }
+    if (market.upRatio != null && isFinite(market.upRatio)) {
+      return '上涨占比' + (market.upRatio * 100).toFixed(1) + '%';
+    }
+    return '市场宽度待确认';
+  }
+
+  function getHeatLeader(entry) {
+    var heat = entry && entry.computed ? (entry.computed.themeHeat || {}) : {};
+    var rows = Object.keys(heat).map(function(name) {
+      var h = heat[name] || {};
+      return { name: name, share: h.share, status: h.heatStatus };
+    }).filter(function(x) {
+      return x.share != null && isFinite(x.share);
+    }).sort(function(a, b) {
+      return b.share - a.share;
+    });
+    return rows[0] || null;
+  }
+
+  function buildShareNarrative(entry, themes) {
+    var market = entry.market || {};
+    var c = entry.computed || {};
+    var wide = entry.etfWide || {};
+    var topInflow = themes.inflow[0] || null;
+    var topOutflow = themes.outflow[0] || null;
+    var heatLeader = getHeatLeader(entry);
+    var totalAmount = market.totalAmount;
+    var headlineParts = [];
+
+    if (totalAmount != null && isFinite(totalAmount)) headlineParts.push('成交额' + (totalAmount / 10000).toFixed(1) + '万亿');
+    if (market.upCount != null && market.downCount != null) headlineParts.push(market.upCount + '涨/' + market.downCount + '跌');
+    if (topInflow) headlineParts.push('最强流入' + topInflow.name);
+    if (!headlineParts.length) headlineParts.push('A股资金面盘后复盘');
+
+    var marketLine = describeAmount(totalAmount, c.amountVs5d) + '；' + describeBreadth(market) + '。';
+    var flowLine = '宽基ETF当日' + fmtYi(wide.totalFlow, 0) + '，近5日' + fmtYi(c.wideFlow5dSum, 0) + '；';
+    if (topInflow) flowLine += '主题资金最强流入是' + topInflow.name + '（' + fmtYi(topInflow.flow, 1) + '）。';
+    else flowLine += '主题资金暂未出现明显集中流入。';
+    if (topOutflow) flowLine += ' 流出压力集中在' + topOutflow.name + '（' + fmtYi(topOutflow.flow, 1) + '）。';
+
+    var verifyLine = '下一交易日优先验证：';
+    if (heatLeader) verifyLine += heatLeader.name + '的TOP100热度能否维持在' + (heatLeader.share * 100).toFixed(1) + '%附近，';
+    if (topInflow) verifyLine += topInflow.name + '是否继续获得ETF资金流入，';
+    verifyLine += '同时观察市场宽度能否修复。';
+
+    return {
+      headline: headlineParts.join('，'),
+      marketLine: marketLine,
+      flowLine: flowLine,
+      verifyLine: verifyLine
+    };
+  }
+
   function createShareCard() {
     var old = document.getElementById('shareExportCard');
     if (old) old.remove();
@@ -7054,10 +7118,11 @@ Object.assign(DMod, {
     var market = entry.market || {};
     var wide = entry.etfWide || {};
     var themes = getThemeRows(entry);
-    var headline = pickText('.pro-headline', 'A股资金面盘后复盘');
-    var marketLine = pickText('.pro-narrative div:nth-child(1)', '');
-    var flowLine = pickText('.pro-narrative div:nth-child(2)', '');
-    var verifyLine = pickText('.pro-narrative div:nth-child(3)', '');
+    var narrative = buildShareNarrative(entry, themes);
+    var headline = narrative.headline;
+    var marketLine = narrative.marketLine;
+    var flowLine = narrative.flowLine;
+    var verifyLine = narrative.verifyLine;
     var upDownText = market.upCount != null && market.downCount != null
       ? market.upCount + '涨 / ' + market.downCount + '跌'
       : '宽度待确认';
