@@ -1272,7 +1272,7 @@ tbody tr:last-child td { border-bottom: none; }
           TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
         <div class="pro-mainline-summary">
-          当前暂无主线确认，先看热度最高的方向：半导体（32.9%）。
+          当前有 4 个通过验证的主线候选。
         </div>
         <div class="pro-mainline-table">
           <div class="pro-mainline-head">
@@ -1281,7 +1281,7 @@ tbody tr:last-child td { border-bottom: none; }
             <span>热度</span>
             <span>证据</span>
           </div>
-          <div class="pro-mainline-row"><span>半导体</span><strong>热度观察</strong><em>32.9%</em><small>证据不足</small></div><div class="pro-mainline-row"><span>AI</span><strong>热度观察</strong><em>21.0%</em><small>证据不足</small></div><div class="pro-mainline-row"><span>通信</span><strong>热度观察</strong><em>18.6%</em><small>证据不足</small></div><div class="pro-mainline-row"><span>有色金属</span><strong>热度观察</strong><em>5.7%</em><small>证据不足</small></div>
+          <div class="pro-mainline-row"><span>创新药</span><strong>潜在主线</strong><em>1.8%</em><small>3/3</small></div><div class="pro-mainline-row"><span>红利</span><strong>防御配置</strong><em>--</em><small>3/3</small></div><div class="pro-mainline-row"><span>通信</span><strong>潜在主线</strong><em>18.6%</em><small>2/3</small></div><div class="pro-mainline-row"><span>半导体</span><strong>潜在主线</strong><em>32.9%</em><small>2/3</small></div>
         </div>
       </div>
       <div class="pro-panel">
@@ -5066,7 +5066,7 @@ function renderProfessionalReview(data, currentDt, phase) {
   const leadShare = leadTheme && totalInflow > 0 ? leadTheme.flow / totalInflow : null;
 
   const mainlines = calcMainlineValidation(entry);
-  const mainPositive = mainlines.filter(m => m.status === '主线确认' || m.status === '潜在主线' || m.status === '防御配置').slice(0, 4);
+  const mainPositive = mainlines.filter(m => m.label === '主线确认' || m.label === '潜在主线' || m.label === '防御配置').slice(0, 4);
   const heatLeaders = mainlines
     .filter(m => m.heatShare != null)
     .sort((a, b) => (b.heatShare || 0) - (a.heatShare || 0))
@@ -5231,9 +5231,9 @@ function renderProfessionalReview(data, currentDt, phase) {
           </div>
           ${(mainPositive.length > 0 ? mainPositive : heatLeaders.slice(0, 4).map(m => ({
             ...m,
-            status: '热度观察',
+            label: '热度观察',
             signalAgreement: '证据不足'
-          }))).map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.status || '--'}</strong><em>${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em><small>${m.signalAgreement || '--'}</small></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
+          }))).map(m => `<div class="pro-mainline-row"><span>${m.themeName || m.theme || '--'}</span><strong>${m.label || '--'}</strong><em>${m.heatShare != null ? (m.heatShare * 100).toFixed(1) + '%' : '--'}</em><small>${m.signalAgreement || '--'}</small></div>`).join('') || '<div class="pro-empty">暂无通过验证的主线候选</div>'}
         </div>
       </div>
       <div class="pro-panel">
