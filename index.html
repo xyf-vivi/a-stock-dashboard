@@ -1269,7 +1269,7 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
         <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
-          TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
+          这里确认的是资金承接 + 相对强度主线，不等于当天价格必须收涨。TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
         <div class="pro-mainline-summary">
           当前有 4 个通过验证的主线候选。
@@ -2788,7 +2788,13 @@ tbody tr:last-child td { border-bottom: none; }
 
       <div class="module-title">
         <span class="num">02</span><span class="title">主线方向验证</span>
-        <span class="subtitle">三证据交叉：ETF资金 × 板块强度 × 持续性（成交热度证据已移除，待建立历史序列后恢复）</span>
+        <span class="subtitle">确认的是资金承接与相对强度主线，不等于当天价格上涨</span>
+      </div>
+      <div class="card" style="margin-bottom:var(--sp-2);font-size:var(--fs-small);color:var(--t2);line-height:1.7">
+        <strong style="color:var(--t1)">如何理解“主线确认”：</strong>
+        本页的主线判断不是“今天涨了就确认”，而是看三项证据是否同时成立：ETF资金当日流入、主题相对全市场更强、近5日资金持续流入。
+        因此在大跌日或弱市里，某个主题即使自身下跌，只要跌得比全市场更有韧性，同时资金仍在流入，也可能被标为“主线确认”。
+        这更接近“资金承接主线”的含义，后续仍要观察价格能否转强。
       </div>
       <div class="tbl-wrap">
         <div class="tbl-scroll">
@@ -2945,11 +2951,11 @@ tbody tr:last-child td { border-bottom: none; }
       <div class="card" style="margin-top:var(--sp-2);font-size:var(--fs-small);color:var(--t2);line-height:1.7">
         <strong style="color:var(--t1)">证据说明：</strong><br>
         • <strong>ETF资金</strong>：当日净流入>0为正向（用方向，不用固定金额）<br>
-        • <strong>板块强度</strong>：优先使用真实主题宽度（主题上涨占比>全市场上涨占比），缺失时才降级为ETF涨跌代理<br>
+        • <strong>板块强度</strong>：优先使用真实主题宽度（主题上涨占比>全市场上涨占比），这是相对强弱，不要求板块涨跌为正；缺失时才降级为ETF涨跌代理<br>
         • <strong>持续性</strong>：5日ETF持续流入（type=sustained）为正向<br>
         • <strong>成交热度</strong>：已移除，原因——原"成交额>0"几乎必然成立，相当于免费送票。需建立主题历史成交额序列、计算20日分位后恢复<br>
         • <strong>TOP100热度</strong>：主题在成交额前100只股票中的占比与入榜数；第一版作为主线确认降级器，不免费加票<br>
-        • <strong>确认条件</strong>：证据完整度达标 + 所有有效证据（≥3项）全部同向
+        • <strong>确认条件</strong>：证据完整度达标 + 所有有效证据（≥3项）全部同向。若板块当日为负，含义应理解为“资金承接/相对抗跌主线”，不是价格趋势已经转强
       </div>
     </div>
   </div>
@@ -5227,7 +5233,7 @@ function renderProfessionalReview(data, currentDt, phase) {
       <div class="pro-panel">
         <div class="pro-panel-title">主线候选与成交热度</div>
         <div style="font-size:11px;color:var(--t3);margin:0 0 8px 0;line-height:1.5">
-          TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
+          这里确认的是资金承接 + 相对强度主线，不等于当天价格必须收涨。TOP100热度 = 成交额前100只股票中的占比，数值越高，说明资金越集中。
         </div>
         <div class="pro-mainline-summary">
           ${mainPositive.length > 0
@@ -6090,7 +6096,13 @@ function renderValidate(data, currentDt) {
 
       <div class="module-title">
         <span class="num">02</span><span class="title">主线方向验证</span>
-        <span class="subtitle">三证据交叉：ETF资金 × 板块强度 × 持续性（成交热度证据已移除，待建立历史序列后恢复）</span>
+        <span class="subtitle">确认的是资金承接与相对强度主线，不等于当天价格上涨</span>
+      </div>
+      <div class="card" style="margin-bottom:var(--sp-2);font-size:var(--fs-small);color:var(--t2);line-height:1.7">
+        <strong style="color:var(--t1)">如何理解“主线确认”：</strong>
+        本页的主线判断不是“今天涨了就确认”，而是看三项证据是否同时成立：ETF资金当日流入、主题相对全市场更强、近5日资金持续流入。
+        因此在大跌日或弱市里，某个主题即使自身下跌，只要跌得比全市场更有韧性，同时资金仍在流入，也可能被标为“主线确认”。
+        这更接近“资金承接主线”的含义，后续仍要观察价格能否转强。
       </div>
       <div class="tbl-wrap">
         <div class="tbl-scroll">
@@ -6107,11 +6119,11 @@ function renderValidate(data, currentDt) {
       <div class="card" style="margin-top:var(--sp-2);font-size:var(--fs-small);color:var(--t2);line-height:1.7">
         <strong style="color:var(--t1)">证据说明：</strong><br>
         • <strong>ETF资金</strong>：当日净流入>0为正向（用方向，不用固定金额）<br>
-        • <strong>板块强度</strong>：优先使用真实主题宽度（主题上涨占比>全市场上涨占比），缺失时才降级为ETF涨跌代理<br>
+        • <strong>板块强度</strong>：优先使用真实主题宽度（主题上涨占比>全市场上涨占比），这是相对强弱，不要求板块涨跌为正；缺失时才降级为ETF涨跌代理<br>
         • <strong>持续性</strong>：5日ETF持续流入（type=sustained）为正向<br>
         • <strong>成交热度</strong>：已移除，原因——原"成交额>0"几乎必然成立，相当于免费送票。需建立主题历史成交额序列、计算20日分位后恢复<br>
         • <strong>TOP100热度</strong>：主题在成交额前100只股票中的占比与入榜数；第一版作为主线确认降级器，不免费加票<br>
-        • <strong>确认条件</strong>：证据完整度达标 + 所有有效证据（≥3项）全部同向
+        • <strong>确认条件</strong>：证据完整度达标 + 所有有效证据（≥3项）全部同向。若板块当日为负，含义应理解为“资金承接/相对抗跌主线”，不是价格趋势已经转强
       </div>
     </div>
   </div>
