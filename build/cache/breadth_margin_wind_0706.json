@@ -3,92 +3,92 @@
     {
       "name": "半导体",
       "indexCode": "882221.WI",
-      "upCount": 15,
-      "downCount": 13,
-      "flatCount": 1,
+      "upCount": 2,
+      "downCount": 27,
+      "flatCount": 0,
       "totalCount": 29,
-      "upRatio": 0.5172413793103449
+      "upRatio": 0.06896551724137931
     },
     {
       "name": "AI",
       "indexCode": "930713.CSI",
-      "upCount": 12,
-      "downCount": 38,
+      "upCount": 21,
+      "downCount": 29,
       "flatCount": 0,
       "totalCount": 50,
-      "upRatio": 0.24
+      "upRatio": 0.42
     },
     {
       "name": "通信",
       "indexCode": "931160.CSI",
-      "upCount": 6,
-      "downCount": 44,
+      "upCount": 18,
+      "downCount": 32,
       "flatCount": 0,
       "totalCount": 50,
-      "upRatio": 0.12
+      "upRatio": 0.36
     },
     {
       "name": "机器人",
       "indexCode": "H30269.CSI",
-      "upCount": 48,
-      "downCount": 1,
+      "upCount": 15,
+      "downCount": 34,
       "flatCount": 1,
       "totalCount": 50,
-      "upRatio": 0.96
+      "upRatio": 0.3
     },
     {
       "name": "创新药",
       "indexCode": "931152.CSI",
-      "upCount": 37,
-      "downCount": 13,
+      "upCount": 3,
+      "downCount": 47,
       "flatCount": 0,
       "totalCount": 50,
-      "upRatio": 0.74
+      "upRatio": 0.06
     },
     {
       "name": "证券",
       "indexCode": "399975.SZ",
-      "upCount": 30,
-      "downCount": 16,
-      "flatCount": 3,
+      "upCount": 1,
+      "downCount": 48,
+      "flatCount": 0,
       "totalCount": 49,
-      "upRatio": 0.6122448979591837
+      "upRatio": 0.02040816326530612
     },
     {
       "name": "红利",
       "indexCode": "000922.CSI",
-      "upCount": 90,
-      "downCount": 10,
+      "upCount": 21,
+      "downCount": 79,
       "flatCount": 0,
       "totalCount": 100,
-      "upRatio": 0.9
+      "upRatio": 0.21
     },
     {
       "name": "有色金属",
       "indexCode": "000819.SH",
-      "upCount": 22,
-      "downCount": 28,
+      "upCount": 4,
+      "downCount": 46,
       "flatCount": 0,
       "totalCount": 50,
-      "upRatio": 0.44
+      "upRatio": 0.08
     },
     {
       "name": "化工",
       "indexCode": "000813.CSI",
-      "upCount": 27,
-      "downCount": 22,
-      "flatCount": 1,
+      "upCount": 7,
+      "downCount": 41,
+      "flatCount": 2,
       "totalCount": 50,
-      "upRatio": 0.54
+      "upRatio": 0.14
     },
     {
       "name": "黄金",
       "indexCode": "930632.CSI",
-      "upCount": 9,
-      "downCount": 40,
-      "flatCount": 1,
+      "upCount": 14,
+      "downCount": 36,
+      "flatCount": 0,
       "totalCount": 50,
-      "upRatio": 0.18
+      "upRatio": 0.28
     }
   ],
   "margin": {
