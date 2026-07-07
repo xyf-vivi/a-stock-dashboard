@@ -1,0 +1,608 @@
+{
+  "builtAt": "2026-07-06T12:44:08.342Z",
+  "total": 98,
+  "byBucket": {
+    "科技成长": 28,
+    "创新药核心": 8,
+    "医药成长扩展": 5,
+    "证券金融": 7,
+    "红利防御": 12,
+    "消费价值": 8,
+    "有色资源": 12,
+    "化工": 3,
+    "新能源": 6,
+    "军工": 3,
+    "传媒游戏": 3,
+    "微盘小票": 3
+  },
+  "universe": [
+    {
+      "code": "159206.SZ",
+      "codeWs": "sz159206",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159326.SZ",
+      "codeWs": "sz159326",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159363.SZ",
+      "codeWs": "sz159363",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159516.SZ",
+      "codeWs": "sz159516",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159530.SZ",
+      "codeWs": "sz159530",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159558.SZ",
+      "codeWs": "sz159558",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159770.SZ",
+      "codeWs": "sz159770",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159777.SZ",
+      "codeWs": "sz159777",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "159801.SZ",
+      "codeWs": "sz159801",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159813.SZ",
+      "codeWs": "sz159813",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159819.SZ",
+      "codeWs": "sz159819",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159852.SZ",
+      "codeWs": "sz159852",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159899.SZ",
+      "codeWs": "sz159899",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "159939.SZ",
+      "codeWs": "sz159939",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "159995.SZ",
+      "codeWs": "sz159995",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159998.SZ",
+      "codeWs": "sz159998",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "512480.SH",
+      "codeWs": "sh512480",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "512760.SH",
+      "codeWs": "sh512760",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "515050.SH",
+      "codeWs": "sh515050",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "515070.SH",
+      "codeWs": "sh515070",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "515880.SH",
+      "codeWs": "sh515880",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "515980.SH",
+      "codeWs": "sh515980",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "560780.SH",
+      "codeWs": "sh560780",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "561980.SH",
+      "codeWs": "sh561980",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "562590.SH",
+      "codeWs": "sh562590",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "588170.SH",
+      "codeWs": "sh588170",
+      "bucket": "科技成长",
+      "role": "whitelist"
+    },
+    {
+      "code": "588200.SH",
+      "codeWs": "sh588200",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "588750.SH",
+      "codeWs": "sh588750",
+      "bucket": "科技成长",
+      "role": "wind"
+    },
+    {
+      "code": "159748.SZ",
+      "codeWs": "sz159748",
+      "bucket": "创新药核心",
+      "role": "whitelist"
+    },
+    {
+      "code": "159835.SZ",
+      "codeWs": "sz159835",
+      "bucket": "创新药核心",
+      "role": "whitelist"
+    },
+    {
+      "code": "159858.SZ",
+      "codeWs": "sz159858",
+      "bucket": "创新药核心",
+      "role": "whitelist"
+    },
+    {
+      "code": "159992.SZ",
+      "codeWs": "sz159992",
+      "bucket": "创新药核心",
+      "role": "wind"
+    },
+    {
+      "code": "515120.SH",
+      "codeWs": "sh515120",
+      "bucket": "创新药核心",
+      "role": "wind"
+    },
+    {
+      "code": "516060.SH",
+      "codeWs": "sh516060",
+      "bucket": "创新药核心",
+      "role": "whitelist"
+    },
+    {
+      "code": "517380.SH",
+      "codeWs": "sh517380",
+      "bucket": "创新药核心",
+      "role": "whitelist"
+    },
+    {
+      "code": "560900.SH",
+      "codeWs": "sh560900",
+      "bucket": "创新药核心",
+      "role": "whitelist"
+    },
+    {
+      "code": "159828.SZ",
+      "codeWs": "sz159828",
+      "bucket": "医药成长扩展",
+      "role": "ext"
+    },
+    {
+      "code": "159883.SZ",
+      "codeWs": "sz159883",
+      "bucket": "医药成长扩展",
+      "role": "ext"
+    },
+    {
+      "code": "512010.SH",
+      "codeWs": "sh512010",
+      "bucket": "医药成长扩展",
+      "role": "whitelist"
+    },
+    {
+      "code": "512170.SH",
+      "codeWs": "sh512170",
+      "bucket": "医药成长扩展",
+      "role": "wind"
+    },
+    {
+      "code": "561510.SH",
+      "codeWs": "sh561510",
+      "bucket": "医药成长扩展",
+      "role": "ext"
+    },
+    {
+      "code": "159841.SZ",
+      "codeWs": "sz159841",
+      "bucket": "证券金融",
+      "role": "whitelist"
+    },
+    {
+      "code": "159851.SZ",
+      "codeWs": "sz159851",
+      "bucket": "证券金融",
+      "role": "wind"
+    },
+    {
+      "code": "159993.SZ",
+      "codeWs": "sz159993",
+      "bucket": "证券金融",
+      "role": "whitelist"
+    },
+    {
+      "code": "512000.SH",
+      "codeWs": "sh512000",
+      "bucket": "证券金融",
+      "role": "whitelist"
+    },
+    {
+      "code": "512070.SH",
+      "codeWs": "sh512070",
+      "bucket": "证券金融",
+      "role": "whitelist"
+    },
+    {
+      "code": "512800.SH",
+      "codeWs": "sh512800",
+      "bucket": "证券金融",
+      "role": "wind"
+    },
+    {
+      "code": "512880.SH",
+      "codeWs": "sh512880",
+      "bucket": "证券金融",
+      "role": "whitelist"
+    },
+    {
+      "code": "159307.SZ",
+      "codeWs": "sz159307",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "159581.SZ",
+      "codeWs": "sz159581",
+      "bucket": "红利防御",
+      "role": "whitelist"
+    },
+    {
+      "code": "159611.SZ",
+      "codeWs": "sz159611",
+      "bucket": "红利防御",
+      "role": "whitelist"
+    },
+    {
+      "code": "510880.SH",
+      "codeWs": "sh510880",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "512890.SH",
+      "codeWs": "sh512890",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "515080.SH",
+      "codeWs": "sh515080",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "515100.SH",
+      "codeWs": "sh515100",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "515180.SH",
+      "codeWs": "sh515180",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "515450.SH",
+      "codeWs": "sh515450",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "560580.SH",
+      "codeWs": "sh560580",
+      "bucket": "红利防御",
+      "role": "whitelist"
+    },
+    {
+      "code": "560700.SH",
+      "codeWs": "sh560700",
+      "bucket": "红利防御",
+      "role": "whitelist"
+    },
+    {
+      "code": "563020.SH",
+      "codeWs": "sh563020",
+      "bucket": "红利防御",
+      "role": "wind"
+    },
+    {
+      "code": "159865.SZ",
+      "codeWs": "sz159865",
+      "bucket": "消费价值",
+      "role": "wind"
+    },
+    {
+      "code": "159928.SZ",
+      "codeWs": "sz159928",
+      "bucket": "消费价值",
+      "role": "wind"
+    },
+    {
+      "code": "159996.SZ",
+      "codeWs": "sz159996",
+      "bucket": "消费价值",
+      "role": "whitelist"
+    },
+    {
+      "code": "510630.SH",
+      "codeWs": "sh510630",
+      "bucket": "消费价值",
+      "role": "whitelist"
+    },
+    {
+      "code": "512690.SH",
+      "codeWs": "sh512690",
+      "bucket": "消费价值",
+      "role": "wind"
+    },
+    {
+      "code": "515650.SH",
+      "codeWs": "sh515650",
+      "bucket": "消费价值",
+      "role": "whitelist"
+    },
+    {
+      "code": "516130.SH",
+      "codeWs": "sh516130",
+      "bucket": "消费价值",
+      "role": "whitelist"
+    },
+    {
+      "code": "516670.SH",
+      "codeWs": "sh516670",
+      "bucket": "消费价值",
+      "role": "whitelist"
+    },
+    {
+      "code": "159157.SZ",
+      "codeWs": "sz159157",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "159713.SZ",
+      "codeWs": "sz159713",
+      "bucket": "有色资源",
+      "role": "whitelist"
+    },
+    {
+      "code": "159871.SZ",
+      "codeWs": "sz159871",
+      "bucket": "有色资源",
+      "role": "whitelist"
+    },
+    {
+      "code": "159934.SZ",
+      "codeWs": "sz159934",
+      "bucket": "有色资源",
+      "role": "whitelist"
+    },
+    {
+      "code": "512400.SH",
+      "codeWs": "sh512400",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "515220.SH",
+      "codeWs": "sh515220",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "516150.SH",
+      "codeWs": "sh516150",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "516650.SH",
+      "codeWs": "sh516650",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "517520.SH",
+      "codeWs": "sh517520",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "518880.SH",
+      "codeWs": "sh518880",
+      "bucket": "有色资源",
+      "role": "whitelist"
+    },
+    {
+      "code": "560860.SH",
+      "codeWs": "sh560860",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "562800.SH",
+      "codeWs": "sh562800",
+      "bucket": "有色资源",
+      "role": "wind"
+    },
+    {
+      "code": "159870.SZ",
+      "codeWs": "sz159870",
+      "bucket": "化工",
+      "role": "wind"
+    },
+    {
+      "code": "516120.SH",
+      "codeWs": "sh516120",
+      "bucket": "化工",
+      "role": "whitelist"
+    },
+    {
+      "code": "516220.SH",
+      "codeWs": "sh516220",
+      "bucket": "化工",
+      "role": "whitelist"
+    },
+    {
+      "code": "159566.SZ",
+      "codeWs": "sz159566",
+      "bucket": "新能源",
+      "role": "wind"
+    },
+    {
+      "code": "159755.SZ",
+      "codeWs": "sz159755",
+      "bucket": "新能源",
+      "role": "wind"
+    },
+    {
+      "code": "159796.SZ",
+      "codeWs": "sz159796",
+      "bucket": "新能源",
+      "role": "wind"
+    },
+    {
+      "code": "515030.SH",
+      "codeWs": "sh515030",
+      "bucket": "新能源",
+      "role": "whitelist"
+    },
+    {
+      "code": "515790.SH",
+      "codeWs": "sh515790",
+      "bucket": "新能源",
+      "role": "wind"
+    },
+    {
+      "code": "562500.SH",
+      "codeWs": "sh562500",
+      "bucket": "新能源",
+      "role": "wind"
+    },
+    {
+      "code": "501019.SH",
+      "codeWs": "sh501019",
+      "bucket": "军工",
+      "role": "whitelist"
+    },
+    {
+      "code": "512660.SH",
+      "codeWs": "sh512660",
+      "bucket": "军工",
+      "role": "wind"
+    },
+    {
+      "code": "512710.SH",
+      "codeWs": "sh512710",
+      "bucket": "军工",
+      "role": "wind"
+    },
+    {
+      "code": "159869.SZ",
+      "codeWs": "sz159869",
+      "bucket": "传媒游戏",
+      "role": "wind"
+    },
+    {
+      "code": "512980.SH",
+      "codeWs": "sh512980",
+      "bucket": "传媒游戏",
+      "role": "whitelist"
+    },
+    {
+      "code": "516890.SH",
+      "codeWs": "sh516890",
+      "bucket": "传媒游戏",
+      "role": "whitelist"
+    },
+    {
+      "code": "159531.SZ",
+      "codeWs": "sz159531",
+      "bucket": "微盘小票",
+      "role": "proxy"
+    },
+    {
+      "code": "159628.SZ",
+      "codeWs": "sz159628",
+      "bucket": "微盘小票",
+      "role": "proxy"
+    },
+    {
+      "code": "563300.SH",
+      "codeWs": "sh563300",
+      "bucket": "微盘小票",
+      "role": "proxy"
+    }
+  ]
+}

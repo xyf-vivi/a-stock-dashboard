@@ -1,0 +1,102 @@
+{
+  "breadth": [
+    {
+      "name": "半导体",
+      "indexCode": "882221.WI",
+      "upCount": 15,
+      "downCount": 13,
+      "flatCount": 1,
+      "totalCount": 29,
+      "upRatio": 0.5172413793103449
+    },
+    {
+      "name": "AI",
+      "indexCode": "930713.CSI",
+      "upCount": 12,
+      "downCount": 38,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.24
+    },
+    {
+      "name": "通信",
+      "indexCode": "931160.CSI",
+      "upCount": 6,
+      "downCount": 44,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.12
+    },
+    {
+      "name": "机器人",
+      "indexCode": "H30269.CSI",
+      "upCount": 48,
+      "downCount": 1,
+      "flatCount": 1,
+      "totalCount": 50,
+      "upRatio": 0.96
+    },
+    {
+      "name": "创新药",
+      "indexCode": "931152.CSI",
+      "upCount": 37,
+      "downCount": 13,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.74
+    },
+    {
+      "name": "证券",
+      "indexCode": "399975.SZ",
+      "upCount": 30,
+      "downCount": 16,
+      "flatCount": 3,
+      "totalCount": 49,
+      "upRatio": 0.6122448979591837
+    },
+    {
+      "name": "红利",
+      "indexCode": "000922.CSI",
+      "upCount": 90,
+      "downCount": 10,
+      "flatCount": 0,
+      "totalCount": 100,
+      "upRatio": 0.9
+    },
+    {
+      "name": "有色金属",
+      "indexCode": "000819.SH",
+      "upCount": 22,
+      "downCount": 28,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.44
+    },
+    {
+      "name": "化工",
+      "indexCode": "000813.CSI",
+      "upCount": 27,
+      "downCount": 22,
+      "flatCount": 1,
+      "totalCount": 50,
+      "upRatio": 0.54
+    },
+    {
+      "name": "黄金",
+      "indexCode": "930632.CSI",
+      "upCount": 9,
+      "downCount": 40,
+      "flatCount": 1,
+      "totalCount": 50,
+      "upRatio": 0.18
+    }
+  ],
+  "margin": {
+    "finBalWan": 296097563.3262,
+    "finBalYi": 29609.75633262,
+    "finBalTrillion": 2.960975633262,
+    "chgYi": -104.95657790999412,
+    "chgTrillion": -0.010495657790999412,
+    "date": "20260706"
+  }
+}
