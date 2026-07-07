@@ -1234,6 +1234,20 @@ function buildInnovativeDrugBucket(entry) {
 // ============ 主题综合评分 + 主线类型 ============
 // themeLeaderScore = 价格30% + 资金25% + 扩散20% + 效率15% + 趋势10%
 // 主线类型 6 种：资金驱动型 / 价格扩散型 / 资金承接型 / 反抽型 / 兑现型 / 退潮型
+// 按 BREADTH_ALIAS 把子主题成分股家数汇总到规范主题，返回成分股上涨占比
+// （优先扁平 upRatio，否则嵌套 breadth.upCount/breadth.totalCount）
+function componentUpRatioByNorm(entry, normName) {
+  if (!entry || !entry.themeBreadth || !Array.isArray(entry.themeBreadth.themes)) return null;
+  var u = 0, t = 0, has = false;
+  entry.themeBreadth.themes.forEach(function (tb) {
+    if (BREADTH_ALIAS[tb.name] !== normName) return;
+    var up = (tb.upCount != null) ? tb.upCount : (tb.breadth && tb.breadth.upCount != null ? tb.breadth.upCount : null);
+    var tot = (tb.totalCount != null) ? tb.totalCount : (tb.breadth && tb.breadth.totalCount != null ? tb.breadth.totalCount : null);
+    if (up != null && tot != null && tot > 0) { u += up; t += tot; has = true; }
+  });
+  return has ? u / t : null;
+}
+
 // 不只看净流入绝对额：涨幅领先+上涨比例高+净流入为正即可进入主线候选
 
 function buildThemeLeaderBoard(entry, data, currentDt, wma) {
@@ -1252,6 +1266,12 @@ function buildThemeLeaderBoard(entry, data, currentDt, wma) {
   });
 
   if (allBuckets.length === 0) return [];
+
+  // 上涨比改用真实成分股口径（Wind 指数成分股家数）：优先 themeBreadth，缺失时回退 ETF 池
+  allBuckets.forEach(function (b) {
+    var comp = componentUpRatioByNorm(entry, b.name);
+    if (comp != null) b.upRatio = comp;
+  });
 
   // 2) 计算每个桶在所有桶中的位次（用于评分归一化）
   function rankDesc(arr, key) {
