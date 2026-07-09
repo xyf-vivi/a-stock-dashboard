@@ -1,0 +1,96 @@
+{
+  "breadth": [
+    {
+      "name": "半导体",
+      "indexCode": "882221.WI",
+      "upCount": 9,
+      "downCount": 19,
+      "flatCount": 1,
+      "totalCount": 29,
+      "upRatio": 0.3103448275862069
+    },
+    {
+      "name": "AI",
+      "indexCode": "930713.CSI",
+      "upCount": 47,
+      "downCount": 3,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.94
+    },
+    {
+      "name": "通信",
+      "indexCode": "931160.CSI",
+      "upCount": 43,
+      "downCount": 7,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.86
+    },
+    {
+      "name": "机器人",
+      "indexCode": "H30269.CSI",
+      "upCount": 5,
+      "downCount": 42,
+      "flatCount": 3,
+      "totalCount": 50,
+      "upRatio": 0.1
+    },
+    {
+      "name": "创新药",
+      "indexCode": "931152.CSI",
+      "upCount": 26,
+      "downCount": 23,
+      "flatCount": 1,
+      "totalCount": 50,
+      "upRatio": 0.52
+    },
+    {
+      "name": "证券",
+      "indexCode": "399975.SZ",
+      "upCount": 49,
+      "downCount": 0,
+      "flatCount": 0,
+      "totalCount": 49,
+      "upRatio": 1
+    },
+    {
+      "name": "红利",
+      "indexCode": "000922.CSI",
+      "upCount": 9,
+      "downCount": 89,
+      "flatCount": 2,
+      "totalCount": 100,
+      "upRatio": 0.09
+    },
+    {
+      "name": "有色金属",
+      "indexCode": "000819.SH",
+      "upCount": 22,
+      "downCount": 28,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.44
+    },
+    {
+      "name": "化工",
+      "indexCode": "000813.CSI",
+      "upCount": 18,
+      "downCount": 32,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.36
+    },
+    {
+      "name": "黄金",
+      "indexCode": "930632.CSI",
+      "upCount": 16,
+      "downCount": 34,
+      "flatCount": 0,
+      "totalCount": 50,
+      "upRatio": 0.32
+    }
+  ],
+  "fetchedAt": "2026-07-09T23:34:56.039Z",
+  "label": "2026-07-09 (Wind latest as of fetch)"
+}
