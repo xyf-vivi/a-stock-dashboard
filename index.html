@@ -9429,11 +9429,11 @@ function buildDecisionState(entry, data, currentDt) {
     var flowNegNow = flowDayVal != null && flowDayVal <= 0;
     var confirmTxt;
     if (flowNegNow) {
-      // 当前资金为负 → 验证条件是"转正"
-      confirmTxt = c.name + '当日ETF净流入转正，涨跌中位数为正，成分股上涨占比维持60%以上，34周线维持当前状态';
+      // 当前资金为负 → 验证条件是"次日转正"
+      confirmTxt = c.name + '次日ETF资金转正，涨跌中位数为正，成分股上涨占比维持60%以上，34周线维持当前状态';
     } else {
-      // 当前资金为正 → 验证条件是"继续净流入"
-      confirmTxt = c.name + '继续维持' + c.type + '信号：ETF继续净流入，涨跌中位数为正，成分股上涨占比维持60%以上，34周线维持当前状态';
+      // 当前资金为正 → 验证条件是"维持净流入"
+      confirmTxt = c.name + '继续维持' + c.type + '信号：ETF维持净流入，涨跌中位数为正，成分股上涨占比维持60%以上，34周线维持当前状态';
     }
     dynamicChecks.push({
       layer: '主线验证·' + c.name,
